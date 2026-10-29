@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
+/* ─── Light theme (default) ─────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Page */
+  --background:     #f4f5fa;
+  --surface:        #ffffff;
+  --surface-2:      #f0f1f8;
+  --surface-3:      #e6e8f2;
+
+  /* Borders */
+  --border:         #e0e2ee;
+  --border-subtle:  #eceef8;
+
+  /* Text */
+  --text:           #1c1d52;
+  --text-muted:     #4a4c72;
+  --text-subtle:    #9092b8;
+
+  /* Brand accent (blue in light, green in dark) */
+  --accent:         #1c1d52;
+  --accent-hover:   #14154a;
+  --accent-subtle:  rgba(28,29,82,0.07);
+
+  /* Sidebar (always brand-blue) */
+  --sidebar-bg:         #1c1d52;
+  --sidebar-border:     rgba(255,255,255,0.08);
+  --sidebar-text:       rgba(255,255,255,0.6);
+  --sidebar-text-active:#ffffff;
+  --sidebar-active-bg:  rgba(255,255,255,0.12);
+  --sidebar-hover-bg:   rgba(255,255,255,0.06);
+
+  /* Status */
+  --success:        #5fbb46;
+  --success-subtle: rgba(95,187,70,0.10);
+  --warning:        #f0be43;
+  --warning-subtle: rgba(240,190,67,0.12);
+  --danger:         #e05252;
+  --danger-subtle:  rgba(224,82,82,0.10);
+  --info:           #2563eb;
+  --info-subtle:    rgba(37,99,235,0.10);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Dark theme ─────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --background:     #0d0e1c;
+  --surface:        #131528;
+  --surface-2:      #1b1d35;
+  --surface-3:      #232542;
+
+  --border:         #2d2f52;
+  --border-subtle:  #1e2040;
+
+  --text:           #eeeef8;
+  --text-muted:     #9092b8;
+  --text-subtle:    #52547a;
+
+  /* In dark mode green is the primary accent */
+  --accent:         #5fbb46;
+  --accent-hover:   #6bcc50;
+  --accent-subtle:  rgba(95,187,70,0.12);
+
+  --sidebar-bg:         #0a0b18;
+  --sidebar-border:     rgba(255,255,255,0.06);
+  --sidebar-text:       rgba(255,255,255,0.5);
+  --sidebar-text-active:#ffffff;
+  --sidebar-active-bg:  rgba(95,187,70,0.14);
+  --sidebar-hover-bg:   rgba(255,255,255,0.05);
+
+  --success:        #5fbb46;
+  --success-subtle: rgba(95,187,70,0.12);
+  --warning:        #f0be43;
+  --warning-subtle: rgba(240,190,67,0.12);
+  --danger:         #e05252;
+  --danger-subtle:  rgba(224,82,82,0.10);
+  --info:           #60a5fa;
+  --info-subtle:    rgba(96,165,250,0.10);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ───────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  font-family: var(--font-lato, "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
 }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-subtle); }
