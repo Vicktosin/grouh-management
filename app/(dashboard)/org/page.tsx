@@ -2,21 +2,16 @@ import { createClient } from "@/lib/supabase/server";
 import { db } from "@/lib/db";
 import Link from "next/link";
 
-type RoleNode = {
-  id: string;
-  title: string;
-  level: number;
-  roleType: string;
-  children: RoleNode[];
-  staff: { id: string; firstName: string; lastName: string }[];
-};
-
 export default async function OrgPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   let roles: {
-    id: string; title: string; level: number; roleType: string; parentRoleId: string | null;
+    id: string;
+    title: string;
+    level: number;
+    roleType: string;
+    parentRoleId: string | null;
     staff: { id: string; firstName: string; lastName: string }[];
   }[] = [];
 
@@ -31,86 +26,135 @@ export default async function OrgPage() {
     }
   } catch {}
 
-  // Build tree
-  const map = new Map<string, RoleNode>();
-  roles.forEach((r) => map.set(r.id, { ...r, children: [] }));
-  const roots: RoleNode[] = [];
-  map.forEach((node) => {
-    const role = roles.find((r) => r.id === node.id);
-    if (role?.parentRoleId && map.has(role.parentRoleId)) {
-      map.get(role.parentRoleId)!.children.push(node);
-    } else {
-      roots.push(node);
-    }
-  });
+  const level1 = roles.filter((r) => r.level === 1);
+  const level2 = roles.filter((r) => r.level === 2);
+  const level3 = roles.filter((r) => r.level === 3);
 
   return (
-    <div className="p-8">
+    <div className="p-6 lg:p-8 max-w-5xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-semibold" style={{ color: "var(--text)" }}>Organisation Chart</h1>
+        <h1 className="text-2xl font-bold" style={{ color: "var(--text)" }}>Organisation Chart</h1>
         <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>Structure and reporting lines</p>
       </div>
 
-      <div className="flex flex-col items-center gap-6">
-        {roots.map((node) => <OrgNode key={node.id} node={node} />)}
+      {/* Level 1 — Director(s) */}
+      <div className="flex justify-center mb-0">
+        <div className="flex flex-wrap justify-center gap-4">
+          {level1.map((role) => (
+            <RoleCard key={role.id} role={role} tier="top" />
+          ))}
+        </div>
       </div>
+
+      {/* Connector */}
+      {level2.length > 0 && (
+        <div className="flex justify-center">
+          <div className="w-px h-8" style={{ background: "var(--border)" }} />
+        </div>
+      )}
+
+      {/* Level 2 — Operations Manager(s) */}
+      {level2.length > 0 && (
+        <>
+          <div className="flex justify-center mb-0">
+            <div className="flex flex-wrap justify-center gap-4">
+              {level2.map((role) => (
+                <RoleCard key={role.id} role={role} tier="mid" />
+              ))}
+            </div>
+          </div>
+
+          {/* Connector to level 3 */}
+          {level3.length > 0 && (
+            <div className="flex flex-col items-center">
+              <div className="w-px h-6" style={{ background: "var(--border)" }} />
+              {/* Horizontal spread line */}
+              <div className="h-px w-full max-w-3xl" style={{ background: "var(--border)" }} />
+              <div className="w-px h-4" style={{ background: "transparent" }} />
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Level 3 — All other roles in a responsive grid */}
+      {level3.length > 0 && (
+        <div
+          className="grid gap-3"
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))" }}
+        >
+          {level3.map((role) => (
+            <RoleCard key={role.id} role={role} tier="base" />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-function OrgNode({ node }: { node: RoleNode }) {
-  const levelColor: Record<number, string> = {
-    1: "var(--accent)",
-    2: "var(--info)",
-    3: "var(--text-muted)",
+function RoleCard({
+  role,
+  tier,
+}: {
+  role: {
+    id: string;
+    title: string;
+    level: number;
+    roleType: string;
+    staff: { id: string; firstName: string; lastName: string }[];
   };
+  tier: "top" | "mid" | "base";
+}) {
+  const borderColor =
+    tier === "top" ? "#1c1d52" : tier === "mid" ? "var(--success)" : "var(--border)";
+
+  const accentColor =
+    tier === "top" ? "#1c1d52" : tier === "mid" ? "var(--success)" : "var(--text-subtle)";
 
   return (
-    <div className="flex flex-col items-center">
-      {/* Card */}
-      <Link href={`/roles/${node.id}`}>
-        <div
-          className="rounded-xl px-5 py-4 text-center min-w-48 cursor-pointer transition-opacity hover:opacity-80"
-          style={{ background: "var(--surface)", border: `1px solid ${levelColor[node.level] ?? "var(--border)"}` }}
-        >
-          <p className="text-sm font-semibold" style={{ color: "var(--text)" }}>{node.title}</p>
-          <p className="text-xs mt-0.5" style={{ color: "var(--text-subtle)" }}>
-            {node.roleType === "human-ai" ? "Human + AI" : "Human"}
-          </p>
-          {node.staff.length > 0 && (
-            <div className="mt-2 pt-2" style={{ borderTop: "1px solid var(--border-subtle)" }}>
-              {node.staff.map((s) => (
-                <p key={s.id} className="text-xs" style={{ color: levelColor[node.level] ?? "var(--text-muted)" }}>
-                  {s.firstName} {s.lastName}
-                </p>
-              ))}
-            </div>
-          )}
-          {node.staff.length === 0 && (
-            <p className="text-xs mt-2 pt-2" style={{ borderTop: "1px solid var(--border-subtle)", color: "var(--text-subtle)" }}>
-              Vacant
-            </p>
+    <Link href={`/roles/${role.id}`}>
+      <div
+        className="rounded-xl p-4 transition-all hover:opacity-90 hover:scale-[1.02] cursor-pointer h-full"
+        style={{
+          background: "var(--surface)",
+          border: `1.5px solid ${borderColor}`,
+          minWidth: tier === "base" ? undefined : 200,
+        }}
+      >
+        {/* Level badge */}
+        <div className="flex items-center gap-2 mb-2">
+          <span
+            className="text-xs font-bold px-2 py-0.5 rounded-full"
+            style={{
+              background: tier === "top" ? "#1c1d5215" : tier === "mid" ? "var(--success-subtle)" : "var(--surface-2)",
+              color: accentColor,
+            }}
+          >
+            L{role.level}
+          </span>
+          {role.roleType === "human-ai" && (
+            <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: "var(--surface-2)", color: "var(--text-subtle)" }}>
+              + AI
+            </span>
           )}
         </div>
-      </Link>
 
-      {/* Children */}
-      {node.children.length > 0 && (
-        <>
-          {/* Connector line */}
-          <div className="w-px h-6" style={{ background: "var(--border)" }} />
-          <div className="flex items-start gap-8">
-            {node.children.map((child, i) => (
-              <div key={child.id} className="flex flex-col items-center">
-                {node.children.length > 1 && (
-                  <div className="w-px h-4" style={{ background: "var(--border)" }} />
-                )}
-                <OrgNode node={child} />
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-    </div>
+        <p className="text-sm font-semibold leading-snug" style={{ color: "var(--text)" }}>
+          {role.title}
+        </p>
+
+        {/* Staff */}
+        <div className="mt-2 pt-2" style={{ borderTop: "1px solid var(--border-subtle)" }}>
+          {role.staff.length === 0 ? (
+            <p className="text-xs italic" style={{ color: "var(--text-subtle)" }}>Vacant</p>
+          ) : (
+            role.staff.map((s) => (
+              <p key={s.id} className="text-xs font-medium" style={{ color: accentColor }}>
+                {s.firstName} {s.lastName}
+              </p>
+            ))
+          )}
+        </div>
+      </div>
+    </Link>
   );
 }
