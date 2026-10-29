@@ -62,7 +62,22 @@ export const ModelName = {
   LeadInteraction: 'LeadInteraction',
   LeadScreenshot: 'LeadScreenshot',
   ContentCalendar: 'ContentCalendar',
-  ContentSlot: 'ContentSlot'
+  ContentSlot: 'ContentSlot',
+  DriveFolder: 'DriveFolder',
+  DriveFile: 'DriveFile',
+  FollowUpLog: 'FollowUpLog',
+  Notification: 'Notification',
+  DriveFileTask: 'DriveFileTask',
+  Campaign: 'Campaign',
+  MarketingChannel: 'MarketingChannel',
+  CampaignChannel: 'CampaignChannel',
+  ChannelPerformance: 'ChannelPerformance',
+  MarketingStrategy: 'MarketingStrategy',
+  CompanyPost: 'CompanyPost',
+  PostMention: 'PostMention',
+  DevFocusItem: 'DevFocusItem',
+  SoftwareTool: 'SoftwareTool',
+  ProductIdea: 'ProductIdea'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -229,8 +244,9 @@ export type LeadScreenshotScalarFieldEnum = (typeof LeadScreenshotScalarFieldEnu
 export const ContentCalendarScalarFieldEnum = {
   id: 'id',
   companyId: 'companyId',
-  month: 'month',
-  year: 'year',
+  name: 'name',
+  description: 'description',
+  color: 'color',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -254,6 +270,215 @@ export const ContentSlotScalarFieldEnum = {
 } as const
 
 export type ContentSlotScalarFieldEnum = (typeof ContentSlotScalarFieldEnum)[keyof typeof ContentSlotScalarFieldEnum]
+
+
+export const DriveFolderScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  name: 'name',
+  color: 'color',
+  createdById: 'createdById',
+  createdAt: 'createdAt'
+} as const
+
+export type DriveFolderScalarFieldEnum = (typeof DriveFolderScalarFieldEnum)[keyof typeof DriveFolderScalarFieldEnum]
+
+
+export const DriveFileScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  folderId: 'folderId',
+  title: 'title',
+  description: 'description',
+  driveUrl: 'driveUrl',
+  fileType: 'fileType',
+  driveFileId: 'driveFileId',
+  uploadedById: 'uploadedById',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DriveFileScalarFieldEnum = (typeof DriveFileScalarFieldEnum)[keyof typeof DriveFileScalarFieldEnum]
+
+
+export const FollowUpLogScalarFieldEnum = {
+  id: 'id',
+  staffId: 'staffId',
+  companyId: 'companyId',
+  logDate: 'logDate',
+  isCleared: 'isCleared',
+  screenshotUrl: 'screenshotUrl',
+  notes: 'notes',
+  submittedAt: 'submittedAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FollowUpLogScalarFieldEnum = (typeof FollowUpLogScalarFieldEnum)[keyof typeof FollowUpLogScalarFieldEnum]
+
+
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  staffId: 'staffId',
+  companyId: 'companyId',
+  type: 'type',
+  title: 'title',
+  message: 'message',
+  urgency: 'urgency',
+  isRead: 'isRead',
+  relatedId: 'relatedId',
+  createdAt: 'createdAt'
+} as const
+
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+
+
+export const DriveFileTaskScalarFieldEnum = {
+  fileId: 'fileId',
+  taskId: 'taskId'
+} as const
+
+export type DriveFileTaskScalarFieldEnum = (typeof DriveFileTaskScalarFieldEnum)[keyof typeof DriveFileTaskScalarFieldEnum]
+
+
+export const CampaignScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  name: 'name',
+  targetCompany: 'targetCompany',
+  description: 'description',
+  status: 'status',
+  budget: 'budget',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  createdById: 'createdById',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CampaignScalarFieldEnum = (typeof CampaignScalarFieldEnum)[keyof typeof CampaignScalarFieldEnum]
+
+
+export const MarketingChannelScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  name: 'name',
+  type: 'type',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+} as const
+
+export type MarketingChannelScalarFieldEnum = (typeof MarketingChannelScalarFieldEnum)[keyof typeof MarketingChannelScalarFieldEnum]
+
+
+export const CampaignChannelScalarFieldEnum = {
+  campaignId: 'campaignId',
+  channelId: 'channelId'
+} as const
+
+export type CampaignChannelScalarFieldEnum = (typeof CampaignChannelScalarFieldEnum)[keyof typeof CampaignChannelScalarFieldEnum]
+
+
+export const ChannelPerformanceScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  campaignId: 'campaignId',
+  channelId: 'channelId',
+  periodLabel: 'periodLabel',
+  spend: 'spend',
+  reach: 'reach',
+  impressions: 'impressions',
+  clicks: 'clicks',
+  conversions: 'conversions',
+  notes: 'notes',
+  loggedAt: 'loggedAt'
+} as const
+
+export type ChannelPerformanceScalarFieldEnum = (typeof ChannelPerformanceScalarFieldEnum)[keyof typeof ChannelPerformanceScalarFieldEnum]
+
+
+export const MarketingStrategyScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  title: 'title',
+  type: 'type',
+  targetCompany: 'targetCompany',
+  body: 'body',
+  status: 'status',
+  createdById: 'createdById',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MarketingStrategyScalarFieldEnum = (typeof MarketingStrategyScalarFieldEnum)[keyof typeof MarketingStrategyScalarFieldEnum]
+
+
+export const CompanyPostScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  authorId: 'authorId',
+  content: 'content',
+  type: 'type',
+  isPinned: 'isPinned',
+  eventDate: 'eventDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CompanyPostScalarFieldEnum = (typeof CompanyPostScalarFieldEnum)[keyof typeof CompanyPostScalarFieldEnum]
+
+
+export const PostMentionScalarFieldEnum = {
+  postId: 'postId',
+  staffId: 'staffId'
+} as const
+
+export type PostMentionScalarFieldEnum = (typeof PostMentionScalarFieldEnum)[keyof typeof PostMentionScalarFieldEnum]
+
+
+export const DevFocusItemScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  staffId: 'staffId',
+  text: 'text',
+  isDone: 'isDone',
+  date: 'date',
+  createdAt: 'createdAt'
+} as const
+
+export type DevFocusItemScalarFieldEnum = (typeof DevFocusItemScalarFieldEnum)[keyof typeof DevFocusItemScalarFieldEnum]
+
+
+export const SoftwareToolScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  name: 'name',
+  category: 'category',
+  usedBy: 'usedBy',
+  url: 'url',
+  monthlyCost: 'monthlyCost',
+  status: 'status',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SoftwareToolScalarFieldEnum = (typeof SoftwareToolScalarFieldEnum)[keyof typeof SoftwareToolScalarFieldEnum]
+
+
+export const ProductIdeaScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  targetCompany: 'targetCompany',
+  priority: 'priority',
+  createdById: 'createdById',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProductIdeaScalarFieldEnum = (typeof ProductIdeaScalarFieldEnum)[keyof typeof ProductIdeaScalarFieldEnum]
 
 
 export const SortOrder = {

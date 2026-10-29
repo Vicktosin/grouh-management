@@ -1,15 +1,15 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { firstName, lastName, email, phone, roleId, companyId, password } = body;
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
-    // Create Supabase auth user
+    // Create Supabase auth user (requires service_role key)
     const { data: authData, error: authError } = await supabase.auth.admin.createUser({
       email,
       password,
@@ -23,10 +23,10 @@ export async function POST(req: Request) {
     const staff = await db.staffMember.create({
       data: {
         userId: authData.user.id,
-        firstName,
-        lastName,
+        firstName: firstName?.trim() || "",
+        lastName: lastName?.trim() || "",
         email,
-        phone: phone || null,
+        phone: phone?.trim() || null,
         roleId: roleId || null,
         companyId,
         status: "active",

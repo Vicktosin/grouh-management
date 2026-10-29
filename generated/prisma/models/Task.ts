@@ -233,6 +233,7 @@ export type TaskWhereInput = {
   company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
   assignee?: Prisma.XOR<Prisma.StaffMemberScalarRelationFilter, Prisma.StaffMemberWhereInput>
   creator?: Prisma.XOR<Prisma.StaffMemberScalarRelationFilter, Prisma.StaffMemberWhereInput>
+  fileLinks?: Prisma.DriveFileTaskListRelationFilter
 }
 
 export type TaskOrderByWithRelationInput = {
@@ -250,6 +251,7 @@ export type TaskOrderByWithRelationInput = {
   company?: Prisma.CompanyOrderByWithRelationInput
   assignee?: Prisma.StaffMemberOrderByWithRelationInput
   creator?: Prisma.StaffMemberOrderByWithRelationInput
+  fileLinks?: Prisma.DriveFileTaskOrderByRelationAggregateInput
 }
 
 export type TaskWhereUniqueInput = Prisma.AtLeast<{
@@ -270,6 +272,7 @@ export type TaskWhereUniqueInput = Prisma.AtLeast<{
   company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
   assignee?: Prisma.XOR<Prisma.StaffMemberScalarRelationFilter, Prisma.StaffMemberWhereInput>
   creator?: Prisma.XOR<Prisma.StaffMemberScalarRelationFilter, Prisma.StaffMemberWhereInput>
+  fileLinks?: Prisma.DriveFileTaskListRelationFilter
 }, "id">
 
 export type TaskOrderByWithAggregationInput = {
@@ -318,6 +321,7 @@ export type TaskCreateInput = {
   company: Prisma.CompanyCreateNestedOneWithoutTasksInput
   assignee: Prisma.StaffMemberCreateNestedOneWithoutAssignedTasksInput
   creator: Prisma.StaffMemberCreateNestedOneWithoutCreatedTasksInput
+  fileLinks?: Prisma.DriveFileTaskCreateNestedManyWithoutTaskInput
 }
 
 export type TaskUncheckedCreateInput = {
@@ -332,6 +336,7 @@ export type TaskUncheckedCreateInput = {
   priority?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedCreateNestedManyWithoutTaskInput
 }
 
 export type TaskUpdateInput = {
@@ -346,6 +351,7 @@ export type TaskUpdateInput = {
   company?: Prisma.CompanyUpdateOneRequiredWithoutTasksNestedInput
   assignee?: Prisma.StaffMemberUpdateOneRequiredWithoutAssignedTasksNestedInput
   creator?: Prisma.StaffMemberUpdateOneRequiredWithoutCreatedTasksNestedInput
+  fileLinks?: Prisma.DriveFileTaskUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskUncheckedUpdateInput = {
@@ -360,6 +366,7 @@ export type TaskUncheckedUpdateInput = {
   priority?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskCreateManyInput = {
@@ -451,6 +458,11 @@ export type TaskMinOrderByAggregateInput = {
   priority?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type TaskScalarRelationFilter = {
+  is?: Prisma.TaskWhereInput
+  isNot?: Prisma.TaskWhereInput
 }
 
 export type TaskCreateNestedManyWithoutCompanyInput = {
@@ -583,6 +595,20 @@ export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
 
+export type TaskCreateNestedOneWithoutFileLinksInput = {
+  create?: Prisma.XOR<Prisma.TaskCreateWithoutFileLinksInput, Prisma.TaskUncheckedCreateWithoutFileLinksInput>
+  connectOrCreate?: Prisma.TaskCreateOrConnectWithoutFileLinksInput
+  connect?: Prisma.TaskWhereUniqueInput
+}
+
+export type TaskUpdateOneRequiredWithoutFileLinksNestedInput = {
+  create?: Prisma.XOR<Prisma.TaskCreateWithoutFileLinksInput, Prisma.TaskUncheckedCreateWithoutFileLinksInput>
+  connectOrCreate?: Prisma.TaskCreateOrConnectWithoutFileLinksInput
+  upsert?: Prisma.TaskUpsertWithoutFileLinksInput
+  connect?: Prisma.TaskWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TaskUpdateToOneWithWhereWithoutFileLinksInput, Prisma.TaskUpdateWithoutFileLinksInput>, Prisma.TaskUncheckedUpdateWithoutFileLinksInput>
+}
+
 export type TaskCreateWithoutCompanyInput = {
   id?: string
   title: string
@@ -594,6 +620,7 @@ export type TaskCreateWithoutCompanyInput = {
   updatedAt?: Date | string
   assignee: Prisma.StaffMemberCreateNestedOneWithoutAssignedTasksInput
   creator: Prisma.StaffMemberCreateNestedOneWithoutCreatedTasksInput
+  fileLinks?: Prisma.DriveFileTaskCreateNestedManyWithoutTaskInput
 }
 
 export type TaskUncheckedCreateWithoutCompanyInput = {
@@ -607,6 +634,7 @@ export type TaskUncheckedCreateWithoutCompanyInput = {
   priority?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedCreateNestedManyWithoutTaskInput
 }
 
 export type TaskCreateOrConnectWithoutCompanyInput = {
@@ -663,6 +691,7 @@ export type TaskCreateWithoutAssigneeInput = {
   updatedAt?: Date | string
   company: Prisma.CompanyCreateNestedOneWithoutTasksInput
   creator: Prisma.StaffMemberCreateNestedOneWithoutCreatedTasksInput
+  fileLinks?: Prisma.DriveFileTaskCreateNestedManyWithoutTaskInput
 }
 
 export type TaskUncheckedCreateWithoutAssigneeInput = {
@@ -676,6 +705,7 @@ export type TaskUncheckedCreateWithoutAssigneeInput = {
   priority?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedCreateNestedManyWithoutTaskInput
 }
 
 export type TaskCreateOrConnectWithoutAssigneeInput = {
@@ -699,6 +729,7 @@ export type TaskCreateWithoutCreatorInput = {
   updatedAt?: Date | string
   company: Prisma.CompanyCreateNestedOneWithoutTasksInput
   assignee: Prisma.StaffMemberCreateNestedOneWithoutAssignedTasksInput
+  fileLinks?: Prisma.DriveFileTaskCreateNestedManyWithoutTaskInput
 }
 
 export type TaskUncheckedCreateWithoutCreatorInput = {
@@ -712,6 +743,7 @@ export type TaskUncheckedCreateWithoutCreatorInput = {
   priority?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedCreateNestedManyWithoutTaskInput
 }
 
 export type TaskCreateOrConnectWithoutCreatorInput = {
@@ -756,6 +788,78 @@ export type TaskUpdateManyWithWhereWithoutCreatorInput = {
   data: Prisma.XOR<Prisma.TaskUpdateManyMutationInput, Prisma.TaskUncheckedUpdateManyWithoutCreatorInput>
 }
 
+export type TaskCreateWithoutFileLinksInput = {
+  id?: string
+  title: string
+  description?: string | null
+  dueDate?: Date | string | null
+  status?: string
+  priority?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutTasksInput
+  assignee: Prisma.StaffMemberCreateNestedOneWithoutAssignedTasksInput
+  creator: Prisma.StaffMemberCreateNestedOneWithoutCreatedTasksInput
+}
+
+export type TaskUncheckedCreateWithoutFileLinksInput = {
+  id?: string
+  companyId: string
+  title: string
+  description?: string | null
+  assigneeId: string
+  creatorId: string
+  dueDate?: Date | string | null
+  status?: string
+  priority?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type TaskCreateOrConnectWithoutFileLinksInput = {
+  where: Prisma.TaskWhereUniqueInput
+  create: Prisma.XOR<Prisma.TaskCreateWithoutFileLinksInput, Prisma.TaskUncheckedCreateWithoutFileLinksInput>
+}
+
+export type TaskUpsertWithoutFileLinksInput = {
+  update: Prisma.XOR<Prisma.TaskUpdateWithoutFileLinksInput, Prisma.TaskUncheckedUpdateWithoutFileLinksInput>
+  create: Prisma.XOR<Prisma.TaskCreateWithoutFileLinksInput, Prisma.TaskUncheckedCreateWithoutFileLinksInput>
+  where?: Prisma.TaskWhereInput
+}
+
+export type TaskUpdateToOneWithWhereWithoutFileLinksInput = {
+  where?: Prisma.TaskWhereInput
+  data: Prisma.XOR<Prisma.TaskUpdateWithoutFileLinksInput, Prisma.TaskUncheckedUpdateWithoutFileLinksInput>
+}
+
+export type TaskUpdateWithoutFileLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutTasksNestedInput
+  assignee?: Prisma.StaffMemberUpdateOneRequiredWithoutAssignedTasksNestedInput
+  creator?: Prisma.StaffMemberUpdateOneRequiredWithoutCreatedTasksNestedInput
+}
+
+export type TaskUncheckedUpdateWithoutFileLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assigneeId?: Prisma.StringFieldUpdateOperationsInput | string
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type TaskCreateManyCompanyInput = {
   id?: string
   title: string
@@ -780,6 +884,7 @@ export type TaskUpdateWithoutCompanyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   assignee?: Prisma.StaffMemberUpdateOneRequiredWithoutAssignedTasksNestedInput
   creator?: Prisma.StaffMemberUpdateOneRequiredWithoutCreatedTasksNestedInput
+  fileLinks?: Prisma.DriveFileTaskUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskUncheckedUpdateWithoutCompanyInput = {
@@ -793,6 +898,7 @@ export type TaskUncheckedUpdateWithoutCompanyInput = {
   priority?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskUncheckedUpdateManyWithoutCompanyInput = {
@@ -845,6 +951,7 @@ export type TaskUpdateWithoutAssigneeInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   company?: Prisma.CompanyUpdateOneRequiredWithoutTasksNestedInput
   creator?: Prisma.StaffMemberUpdateOneRequiredWithoutCreatedTasksNestedInput
+  fileLinks?: Prisma.DriveFileTaskUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskUncheckedUpdateWithoutAssigneeInput = {
@@ -858,6 +965,7 @@ export type TaskUncheckedUpdateWithoutAssigneeInput = {
   priority?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskUncheckedUpdateManyWithoutAssigneeInput = {
@@ -884,6 +992,7 @@ export type TaskUpdateWithoutCreatorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   company?: Prisma.CompanyUpdateOneRequiredWithoutTasksNestedInput
   assignee?: Prisma.StaffMemberUpdateOneRequiredWithoutAssignedTasksNestedInput
+  fileLinks?: Prisma.DriveFileTaskUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskUncheckedUpdateWithoutCreatorInput = {
@@ -897,6 +1006,7 @@ export type TaskUncheckedUpdateWithoutCreatorInput = {
   priority?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fileLinks?: Prisma.DriveFileTaskUncheckedUpdateManyWithoutTaskNestedInput
 }
 
 export type TaskUncheckedUpdateManyWithoutCreatorInput = {
@@ -912,6 +1022,35 @@ export type TaskUncheckedUpdateManyWithoutCreatorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type TaskCountOutputType
+ */
+
+export type TaskCountOutputType = {
+  fileLinks: number
+}
+
+export type TaskCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fileLinks?: boolean | TaskCountOutputTypeCountFileLinksArgs
+}
+
+/**
+ * TaskCountOutputType without action
+ */
+export type TaskCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TaskCountOutputType
+   */
+  select?: Prisma.TaskCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * TaskCountOutputType without action
+ */
+export type TaskCountOutputTypeCountFileLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DriveFileTaskWhereInput
+}
 
 
 export type TaskSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -929,6 +1068,8 @@ export type TaskSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   assignee?: boolean | Prisma.StaffMemberDefaultArgs<ExtArgs>
   creator?: boolean | Prisma.StaffMemberDefaultArgs<ExtArgs>
+  fileLinks?: boolean | Prisma.Task$fileLinksArgs<ExtArgs>
+  _count?: boolean | Prisma.TaskCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["task"]>
 
 export type TaskSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -984,6 +1125,8 @@ export type TaskInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   assignee?: boolean | Prisma.StaffMemberDefaultArgs<ExtArgs>
   creator?: boolean | Prisma.StaffMemberDefaultArgs<ExtArgs>
+  fileLinks?: boolean | Prisma.Task$fileLinksArgs<ExtArgs>
+  _count?: boolean | Prisma.TaskCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TaskIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -1002,6 +1145,7 @@ export type $TaskPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     company: Prisma.$CompanyPayload<ExtArgs>
     assignee: Prisma.$StaffMemberPayload<ExtArgs>
     creator: Prisma.$StaffMemberPayload<ExtArgs>
+    fileLinks: Prisma.$DriveFileTaskPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1412,6 +1556,7 @@ export interface Prisma__TaskClient<T, Null = never, ExtArgs extends runtime.Typ
   company<T extends Prisma.CompanyDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CompanyDefaultArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   assignee<T extends Prisma.StaffMemberDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMemberDefaultArgs<ExtArgs>>): Prisma.Prisma__StaffMemberClient<runtime.Types.Result.GetResult<Prisma.$StaffMemberPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   creator<T extends Prisma.StaffMemberDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMemberDefaultArgs<ExtArgs>>): Prisma.Prisma__StaffMemberClient<runtime.Types.Result.GetResult<Prisma.$StaffMemberPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  fileLinks<T extends Prisma.Task$fileLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Task$fileLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DriveFileTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1850,6 +1995,30 @@ export type TaskDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Limit how many Tasks to delete.
    */
   limit?: number
+}
+
+/**
+ * Task.fileLinks
+ */
+export type Task$fileLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DriveFileTask
+   */
+  select?: Prisma.DriveFileTaskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DriveFileTask
+   */
+  omit?: Prisma.DriveFileTaskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DriveFileTaskInclude<ExtArgs> | null
+  where?: Prisma.DriveFileTaskWhereInput
+  orderBy?: Prisma.DriveFileTaskOrderByWithRelationInput | Prisma.DriveFileTaskOrderByWithRelationInput[]
+  cursor?: Prisma.DriveFileTaskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DriveFileTaskScalarFieldEnum | Prisma.DriveFileTaskScalarFieldEnum[]
 }
 
 /**

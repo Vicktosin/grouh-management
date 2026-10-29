@@ -246,6 +246,16 @@ export type StaffMemberWhereInput = {
   kpiReports?: Prisma.KPIReportListRelationFilter
   leads?: Prisma.LeadListRelationFilter
   leadInteractions?: Prisma.LeadInteractionListRelationFilter
+  uploadedFiles?: Prisma.DriveFileListRelationFilter
+  createdFolders?: Prisma.DriveFolderListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
+  followUpLogs?: Prisma.FollowUpLogListRelationFilter
+  devFocusItems?: Prisma.DevFocusItemListRelationFilter
+  productIdeas?: Prisma.ProductIdeaListRelationFilter
+  companyPosts?: Prisma.CompanyPostListRelationFilter
+  postMentions?: Prisma.PostMentionListRelationFilter
+  campaigns?: Prisma.CampaignListRelationFilter
+  marketingStrategy?: Prisma.MarketingStrategyListRelationFilter
 }
 
 export type StaffMemberOrderByWithRelationInput = {
@@ -269,6 +279,16 @@ export type StaffMemberOrderByWithRelationInput = {
   kpiReports?: Prisma.KPIReportOrderByRelationAggregateInput
   leads?: Prisma.LeadOrderByRelationAggregateInput
   leadInteractions?: Prisma.LeadInteractionOrderByRelationAggregateInput
+  uploadedFiles?: Prisma.DriveFileOrderByRelationAggregateInput
+  createdFolders?: Prisma.DriveFolderOrderByRelationAggregateInput
+  notifications?: Prisma.NotificationOrderByRelationAggregateInput
+  followUpLogs?: Prisma.FollowUpLogOrderByRelationAggregateInput
+  devFocusItems?: Prisma.DevFocusItemOrderByRelationAggregateInput
+  productIdeas?: Prisma.ProductIdeaOrderByRelationAggregateInput
+  companyPosts?: Prisma.CompanyPostOrderByRelationAggregateInput
+  postMentions?: Prisma.PostMentionOrderByRelationAggregateInput
+  campaigns?: Prisma.CampaignOrderByRelationAggregateInput
+  marketingStrategy?: Prisma.MarketingStrategyOrderByRelationAggregateInput
 }
 
 export type StaffMemberWhereUniqueInput = Prisma.AtLeast<{
@@ -295,6 +315,16 @@ export type StaffMemberWhereUniqueInput = Prisma.AtLeast<{
   kpiReports?: Prisma.KPIReportListRelationFilter
   leads?: Prisma.LeadListRelationFilter
   leadInteractions?: Prisma.LeadInteractionListRelationFilter
+  uploadedFiles?: Prisma.DriveFileListRelationFilter
+  createdFolders?: Prisma.DriveFolderListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
+  followUpLogs?: Prisma.FollowUpLogListRelationFilter
+  devFocusItems?: Prisma.DevFocusItemListRelationFilter
+  productIdeas?: Prisma.ProductIdeaListRelationFilter
+  companyPosts?: Prisma.CompanyPostListRelationFilter
+  postMentions?: Prisma.PostMentionListRelationFilter
+  campaigns?: Prisma.CampaignListRelationFilter
+  marketingStrategy?: Prisma.MarketingStrategyListRelationFilter
 }, "id" | "userId" | "email">
 
 export type StaffMemberOrderByWithAggregationInput = {
@@ -352,6 +382,16 @@ export type StaffMemberCreateInput = {
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateInput = {
@@ -373,6 +413,16 @@ export type StaffMemberUncheckedCreateInput = {
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUpdateInput = {
@@ -394,6 +444,16 @@ export type StaffMemberUpdateInput = {
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateInput = {
@@ -415,6 +475,16 @@ export type StaffMemberUncheckedUpdateInput = {
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberCreateManyInput = {
@@ -688,6 +758,146 @@ export type StaffMemberUpdateOneRequiredWithoutLeadInteractionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutLeadInteractionsInput, Prisma.StaffMemberUpdateWithoutLeadInteractionsInput>, Prisma.StaffMemberUncheckedUpdateWithoutLeadInteractionsInput>
 }
 
+export type StaffMemberCreateNestedOneWithoutCreatedFoldersInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutCreatedFoldersInput, Prisma.StaffMemberUncheckedCreateWithoutCreatedFoldersInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutCreatedFoldersInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutCreatedFoldersNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutCreatedFoldersInput, Prisma.StaffMemberUncheckedCreateWithoutCreatedFoldersInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutCreatedFoldersInput
+  upsert?: Prisma.StaffMemberUpsertWithoutCreatedFoldersInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutCreatedFoldersInput, Prisma.StaffMemberUpdateWithoutCreatedFoldersInput>, Prisma.StaffMemberUncheckedUpdateWithoutCreatedFoldersInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutUploadedFilesInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutUploadedFilesInput, Prisma.StaffMemberUncheckedCreateWithoutUploadedFilesInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutUploadedFilesInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutUploadedFilesNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutUploadedFilesInput, Prisma.StaffMemberUncheckedCreateWithoutUploadedFilesInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutUploadedFilesInput
+  upsert?: Prisma.StaffMemberUpsertWithoutUploadedFilesInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutUploadedFilesInput, Prisma.StaffMemberUpdateWithoutUploadedFilesInput>, Prisma.StaffMemberUncheckedUpdateWithoutUploadedFilesInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutFollowUpLogsInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutFollowUpLogsInput, Prisma.StaffMemberUncheckedCreateWithoutFollowUpLogsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutFollowUpLogsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutFollowUpLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutFollowUpLogsInput, Prisma.StaffMemberUncheckedCreateWithoutFollowUpLogsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutFollowUpLogsInput
+  upsert?: Prisma.StaffMemberUpsertWithoutFollowUpLogsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutFollowUpLogsInput, Prisma.StaffMemberUpdateWithoutFollowUpLogsInput>, Prisma.StaffMemberUncheckedUpdateWithoutFollowUpLogsInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutNotificationsInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutNotificationsInput, Prisma.StaffMemberUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutNotificationsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutNotificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutNotificationsInput, Prisma.StaffMemberUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutNotificationsInput
+  upsert?: Prisma.StaffMemberUpsertWithoutNotificationsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutNotificationsInput, Prisma.StaffMemberUpdateWithoutNotificationsInput>, Prisma.StaffMemberUncheckedUpdateWithoutNotificationsInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutCampaignsInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutCampaignsInput, Prisma.StaffMemberUncheckedCreateWithoutCampaignsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutCampaignsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutCampaignsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutCampaignsInput, Prisma.StaffMemberUncheckedCreateWithoutCampaignsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutCampaignsInput
+  upsert?: Prisma.StaffMemberUpsertWithoutCampaignsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutCampaignsInput, Prisma.StaffMemberUpdateWithoutCampaignsInput>, Prisma.StaffMemberUncheckedUpdateWithoutCampaignsInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutMarketingStrategyInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutMarketingStrategyInput, Prisma.StaffMemberUncheckedCreateWithoutMarketingStrategyInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutMarketingStrategyInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutMarketingStrategyNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutMarketingStrategyInput, Prisma.StaffMemberUncheckedCreateWithoutMarketingStrategyInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutMarketingStrategyInput
+  upsert?: Prisma.StaffMemberUpsertWithoutMarketingStrategyInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutMarketingStrategyInput, Prisma.StaffMemberUpdateWithoutMarketingStrategyInput>, Prisma.StaffMemberUncheckedUpdateWithoutMarketingStrategyInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutCompanyPostsInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutCompanyPostsInput, Prisma.StaffMemberUncheckedCreateWithoutCompanyPostsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutCompanyPostsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutCompanyPostsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutCompanyPostsInput, Prisma.StaffMemberUncheckedCreateWithoutCompanyPostsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutCompanyPostsInput
+  upsert?: Prisma.StaffMemberUpsertWithoutCompanyPostsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutCompanyPostsInput, Prisma.StaffMemberUpdateWithoutCompanyPostsInput>, Prisma.StaffMemberUncheckedUpdateWithoutCompanyPostsInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutPostMentionsInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutPostMentionsInput, Prisma.StaffMemberUncheckedCreateWithoutPostMentionsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutPostMentionsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutPostMentionsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutPostMentionsInput, Prisma.StaffMemberUncheckedCreateWithoutPostMentionsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutPostMentionsInput
+  upsert?: Prisma.StaffMemberUpsertWithoutPostMentionsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutPostMentionsInput, Prisma.StaffMemberUpdateWithoutPostMentionsInput>, Prisma.StaffMemberUncheckedUpdateWithoutPostMentionsInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutDevFocusItemsInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutDevFocusItemsInput, Prisma.StaffMemberUncheckedCreateWithoutDevFocusItemsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutDevFocusItemsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutDevFocusItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutDevFocusItemsInput, Prisma.StaffMemberUncheckedCreateWithoutDevFocusItemsInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutDevFocusItemsInput
+  upsert?: Prisma.StaffMemberUpsertWithoutDevFocusItemsInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutDevFocusItemsInput, Prisma.StaffMemberUpdateWithoutDevFocusItemsInput>, Prisma.StaffMemberUncheckedUpdateWithoutDevFocusItemsInput>
+}
+
+export type StaffMemberCreateNestedOneWithoutProductIdeasInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutProductIdeasInput, Prisma.StaffMemberUncheckedCreateWithoutProductIdeasInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutProductIdeasInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+}
+
+export type StaffMemberUpdateOneRequiredWithoutProductIdeasNestedInput = {
+  create?: Prisma.XOR<Prisma.StaffMemberCreateWithoutProductIdeasInput, Prisma.StaffMemberUncheckedCreateWithoutProductIdeasInput>
+  connectOrCreate?: Prisma.StaffMemberCreateOrConnectWithoutProductIdeasInput
+  upsert?: Prisma.StaffMemberUpsertWithoutProductIdeasInput
+  connect?: Prisma.StaffMemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffMemberUpdateToOneWithWhereWithoutProductIdeasInput, Prisma.StaffMemberUpdateWithoutProductIdeasInput>, Prisma.StaffMemberUncheckedUpdateWithoutProductIdeasInput>
+}
+
 export type StaffMemberCreateWithoutCompanyInput = {
   id?: string
   userId: string
@@ -706,6 +916,16 @@ export type StaffMemberCreateWithoutCompanyInput = {
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutCompanyInput = {
@@ -726,6 +946,16 @@ export type StaffMemberUncheckedCreateWithoutCompanyInput = {
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutCompanyInput = {
@@ -790,6 +1020,16 @@ export type StaffMemberCreateWithoutRoleInput = {
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutRoleInput = {
@@ -810,6 +1050,16 @@ export type StaffMemberUncheckedCreateWithoutRoleInput = {
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutRoleInput = {
@@ -856,6 +1106,16 @@ export type StaffMemberCreateWithoutAssignedTasksInput = {
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutAssignedTasksInput = {
@@ -876,6 +1136,16 @@ export type StaffMemberUncheckedCreateWithoutAssignedTasksInput = {
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutAssignedTasksInput = {
@@ -901,6 +1171,16 @@ export type StaffMemberCreateWithoutCreatedTasksInput = {
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutCreatedTasksInput = {
@@ -921,6 +1201,16 @@ export type StaffMemberUncheckedCreateWithoutCreatedTasksInput = {
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutCreatedTasksInput = {
@@ -957,6 +1247,16 @@ export type StaffMemberUpdateWithoutAssignedTasksInput = {
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutAssignedTasksInput = {
@@ -977,6 +1277,16 @@ export type StaffMemberUncheckedUpdateWithoutAssignedTasksInput = {
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUpsertWithoutCreatedTasksInput = {
@@ -1008,6 +1318,16 @@ export type StaffMemberUpdateWithoutCreatedTasksInput = {
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutCreatedTasksInput = {
@@ -1028,6 +1348,16 @@ export type StaffMemberUncheckedUpdateWithoutCreatedTasksInput = {
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberCreateWithoutKpiReportsInput = {
@@ -1048,6 +1378,16 @@ export type StaffMemberCreateWithoutKpiReportsInput = {
   timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutKpiReportsInput = {
@@ -1068,6 +1408,16 @@ export type StaffMemberUncheckedCreateWithoutKpiReportsInput = {
   timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutKpiReportsInput = {
@@ -1104,6 +1454,16 @@ export type StaffMemberUpdateWithoutKpiReportsInput = {
   timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutKpiReportsInput = {
@@ -1124,6 +1484,16 @@ export type StaffMemberUncheckedUpdateWithoutKpiReportsInput = {
   timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberCreateWithoutTimeEntriesInput = {
@@ -1144,6 +1514,16 @@ export type StaffMemberCreateWithoutTimeEntriesInput = {
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutTimeEntriesInput = {
@@ -1164,6 +1544,16 @@ export type StaffMemberUncheckedCreateWithoutTimeEntriesInput = {
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutTimeEntriesInput = {
@@ -1200,6 +1590,16 @@ export type StaffMemberUpdateWithoutTimeEntriesInput = {
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutTimeEntriesInput = {
@@ -1220,6 +1620,16 @@ export type StaffMemberUncheckedUpdateWithoutTimeEntriesInput = {
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberCreateWithoutLeadsInput = {
@@ -1240,6 +1650,16 @@ export type StaffMemberCreateWithoutLeadsInput = {
   timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutLeadsInput = {
@@ -1260,6 +1680,16 @@ export type StaffMemberUncheckedCreateWithoutLeadsInput = {
   timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutLeadsInput = {
@@ -1296,6 +1726,16 @@ export type StaffMemberUpdateWithoutLeadsInput = {
   timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutLeadsInput = {
@@ -1316,6 +1756,16 @@ export type StaffMemberUncheckedUpdateWithoutLeadsInput = {
   timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberCreateWithoutLeadInteractionsInput = {
@@ -1336,6 +1786,16 @@ export type StaffMemberCreateWithoutLeadInteractionsInput = {
   timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
   kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberUncheckedCreateWithoutLeadInteractionsInput = {
@@ -1356,6 +1816,16 @@ export type StaffMemberUncheckedCreateWithoutLeadInteractionsInput = {
   timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
   kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
 }
 
 export type StaffMemberCreateOrConnectWithoutLeadInteractionsInput = {
@@ -1392,6 +1862,16 @@ export type StaffMemberUpdateWithoutLeadInteractionsInput = {
   timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutLeadInteractionsInput = {
@@ -1412,6 +1892,1376 @@ export type StaffMemberUncheckedUpdateWithoutLeadInteractionsInput = {
   timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutCreatedFoldersInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutCreatedFoldersInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutCreatedFoldersInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutCreatedFoldersInput, Prisma.StaffMemberUncheckedCreateWithoutCreatedFoldersInput>
+}
+
+export type StaffMemberUpsertWithoutCreatedFoldersInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutCreatedFoldersInput, Prisma.StaffMemberUncheckedUpdateWithoutCreatedFoldersInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutCreatedFoldersInput, Prisma.StaffMemberUncheckedCreateWithoutCreatedFoldersInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutCreatedFoldersInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutCreatedFoldersInput, Prisma.StaffMemberUncheckedUpdateWithoutCreatedFoldersInput>
+}
+
+export type StaffMemberUpdateWithoutCreatedFoldersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutCreatedFoldersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutUploadedFilesInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutUploadedFilesInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutUploadedFilesInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutUploadedFilesInput, Prisma.StaffMemberUncheckedCreateWithoutUploadedFilesInput>
+}
+
+export type StaffMemberUpsertWithoutUploadedFilesInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutUploadedFilesInput, Prisma.StaffMemberUncheckedUpdateWithoutUploadedFilesInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutUploadedFilesInput, Prisma.StaffMemberUncheckedCreateWithoutUploadedFilesInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutUploadedFilesInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutUploadedFilesInput, Prisma.StaffMemberUncheckedUpdateWithoutUploadedFilesInput>
+}
+
+export type StaffMemberUpdateWithoutUploadedFilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutUploadedFilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutFollowUpLogsInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutFollowUpLogsInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutFollowUpLogsInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutFollowUpLogsInput, Prisma.StaffMemberUncheckedCreateWithoutFollowUpLogsInput>
+}
+
+export type StaffMemberUpsertWithoutFollowUpLogsInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutFollowUpLogsInput, Prisma.StaffMemberUncheckedUpdateWithoutFollowUpLogsInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutFollowUpLogsInput, Prisma.StaffMemberUncheckedCreateWithoutFollowUpLogsInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutFollowUpLogsInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutFollowUpLogsInput, Prisma.StaffMemberUncheckedUpdateWithoutFollowUpLogsInput>
+}
+
+export type StaffMemberUpdateWithoutFollowUpLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutFollowUpLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutNotificationsInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutNotificationsInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutNotificationsInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutNotificationsInput, Prisma.StaffMemberUncheckedCreateWithoutNotificationsInput>
+}
+
+export type StaffMemberUpsertWithoutNotificationsInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutNotificationsInput, Prisma.StaffMemberUncheckedUpdateWithoutNotificationsInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutNotificationsInput, Prisma.StaffMemberUncheckedCreateWithoutNotificationsInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutNotificationsInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutNotificationsInput, Prisma.StaffMemberUncheckedUpdateWithoutNotificationsInput>
+}
+
+export type StaffMemberUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutCampaignsInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutCampaignsInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutCampaignsInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutCampaignsInput, Prisma.StaffMemberUncheckedCreateWithoutCampaignsInput>
+}
+
+export type StaffMemberUpsertWithoutCampaignsInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutCampaignsInput, Prisma.StaffMemberUncheckedUpdateWithoutCampaignsInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutCampaignsInput, Prisma.StaffMemberUncheckedCreateWithoutCampaignsInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutCampaignsInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutCampaignsInput, Prisma.StaffMemberUncheckedUpdateWithoutCampaignsInput>
+}
+
+export type StaffMemberUpdateWithoutCampaignsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutCampaignsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutMarketingStrategyInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutMarketingStrategyInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutMarketingStrategyInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutMarketingStrategyInput, Prisma.StaffMemberUncheckedCreateWithoutMarketingStrategyInput>
+}
+
+export type StaffMemberUpsertWithoutMarketingStrategyInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutMarketingStrategyInput, Prisma.StaffMemberUncheckedUpdateWithoutMarketingStrategyInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutMarketingStrategyInput, Prisma.StaffMemberUncheckedCreateWithoutMarketingStrategyInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutMarketingStrategyInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutMarketingStrategyInput, Prisma.StaffMemberUncheckedUpdateWithoutMarketingStrategyInput>
+}
+
+export type StaffMemberUpdateWithoutMarketingStrategyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutMarketingStrategyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutCompanyPostsInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutCompanyPostsInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutCompanyPostsInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutCompanyPostsInput, Prisma.StaffMemberUncheckedCreateWithoutCompanyPostsInput>
+}
+
+export type StaffMemberUpsertWithoutCompanyPostsInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutCompanyPostsInput, Prisma.StaffMemberUncheckedUpdateWithoutCompanyPostsInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutCompanyPostsInput, Prisma.StaffMemberUncheckedCreateWithoutCompanyPostsInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutCompanyPostsInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutCompanyPostsInput, Prisma.StaffMemberUncheckedUpdateWithoutCompanyPostsInput>
+}
+
+export type StaffMemberUpdateWithoutCompanyPostsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutCompanyPostsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutPostMentionsInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutPostMentionsInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutPostMentionsInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutPostMentionsInput, Prisma.StaffMemberUncheckedCreateWithoutPostMentionsInput>
+}
+
+export type StaffMemberUpsertWithoutPostMentionsInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutPostMentionsInput, Prisma.StaffMemberUncheckedUpdateWithoutPostMentionsInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutPostMentionsInput, Prisma.StaffMemberUncheckedCreateWithoutPostMentionsInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutPostMentionsInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutPostMentionsInput, Prisma.StaffMemberUncheckedUpdateWithoutPostMentionsInput>
+}
+
+export type StaffMemberUpdateWithoutPostMentionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutPostMentionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutDevFocusItemsInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutDevFocusItemsInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  productIdeas?: Prisma.ProductIdeaUncheckedCreateNestedManyWithoutCreatedByInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutDevFocusItemsInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutDevFocusItemsInput, Prisma.StaffMemberUncheckedCreateWithoutDevFocusItemsInput>
+}
+
+export type StaffMemberUpsertWithoutDevFocusItemsInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutDevFocusItemsInput, Prisma.StaffMemberUncheckedUpdateWithoutDevFocusItemsInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutDevFocusItemsInput, Prisma.StaffMemberUncheckedCreateWithoutDevFocusItemsInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutDevFocusItemsInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutDevFocusItemsInput, Prisma.StaffMemberUncheckedUpdateWithoutDevFocusItemsInput>
+}
+
+export type StaffMemberUpdateWithoutDevFocusItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutDevFocusItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberCreateWithoutProductIdeasInput = {
+  id?: string
+  userId: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
+  role?: Prisma.RoleCreateNestedOneWithoutStaffInput
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemCreateNestedManyWithoutStaffInput
+  companyPosts?: Prisma.CompanyPostCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberUncheckedCreateWithoutProductIdeasInput = {
+  id?: string
+  userId: string
+  companyId: string
+  roleId?: string | null
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string | null
+  avatar?: string | null
+  status?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssigneeInput
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatorInput
+  timeEntries?: Prisma.TimeEntryUncheckedCreateNestedManyWithoutStaffInput
+  kpiReports?: Prisma.KPIReportUncheckedCreateNestedManyWithoutStaffInput
+  leads?: Prisma.LeadUncheckedCreateNestedManyWithoutAssigneeInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedCreateNestedManyWithoutStaffInput
+  uploadedFiles?: Prisma.DriveFileUncheckedCreateNestedManyWithoutUploadedByInput
+  createdFolders?: Prisma.DriveFolderUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutStaffInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedCreateNestedManyWithoutStaffInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedCreateNestedManyWithoutStaffInput
+  companyPosts?: Prisma.CompanyPostUncheckedCreateNestedManyWithoutAuthorInput
+  postMentions?: Prisma.PostMentionUncheckedCreateNestedManyWithoutStaffInput
+  campaigns?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type StaffMemberCreateOrConnectWithoutProductIdeasInput = {
+  where: Prisma.StaffMemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutProductIdeasInput, Prisma.StaffMemberUncheckedCreateWithoutProductIdeasInput>
+}
+
+export type StaffMemberUpsertWithoutProductIdeasInput = {
+  update: Prisma.XOR<Prisma.StaffMemberUpdateWithoutProductIdeasInput, Prisma.StaffMemberUncheckedUpdateWithoutProductIdeasInput>
+  create: Prisma.XOR<Prisma.StaffMemberCreateWithoutProductIdeasInput, Prisma.StaffMemberUncheckedCreateWithoutProductIdeasInput>
+  where?: Prisma.StaffMemberWhereInput
+}
+
+export type StaffMemberUpdateToOneWithWhereWithoutProductIdeasInput = {
+  where?: Prisma.StaffMemberWhereInput
+  data: Prisma.XOR<Prisma.StaffMemberUpdateWithoutProductIdeasInput, Prisma.StaffMemberUncheckedUpdateWithoutProductIdeasInput>
+}
+
+export type StaffMemberUpdateWithoutProductIdeasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
+  role?: Prisma.RoleUpdateOneWithoutStaffNestedInput
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
+}
+
+export type StaffMemberUncheckedUpdateWithoutProductIdeasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  roleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatorNestedInput
+  timeEntries?: Prisma.TimeEntryUncheckedUpdateManyWithoutStaffNestedInput
+  kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
+  leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
+  leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberCreateManyCompanyInput = {
@@ -1446,6 +3296,16 @@ export type StaffMemberUpdateWithoutCompanyInput = {
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutCompanyInput = {
@@ -1466,6 +3326,16 @@ export type StaffMemberUncheckedUpdateWithoutCompanyInput = {
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateManyWithoutCompanyInput = {
@@ -1514,6 +3384,16 @@ export type StaffMemberUpdateWithoutRoleInput = {
   kpiReports?: Prisma.KPIReportUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateWithoutRoleInput = {
@@ -1534,6 +3414,16 @@ export type StaffMemberUncheckedUpdateWithoutRoleInput = {
   kpiReports?: Prisma.KPIReportUncheckedUpdateManyWithoutStaffNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutAssigneeNestedInput
   leadInteractions?: Prisma.LeadInteractionUncheckedUpdateManyWithoutStaffNestedInput
+  uploadedFiles?: Prisma.DriveFileUncheckedUpdateManyWithoutUploadedByNestedInput
+  createdFolders?: Prisma.DriveFolderUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutStaffNestedInput
+  followUpLogs?: Prisma.FollowUpLogUncheckedUpdateManyWithoutStaffNestedInput
+  devFocusItems?: Prisma.DevFocusItemUncheckedUpdateManyWithoutStaffNestedInput
+  productIdeas?: Prisma.ProductIdeaUncheckedUpdateManyWithoutCreatedByNestedInput
+  companyPosts?: Prisma.CompanyPostUncheckedUpdateManyWithoutAuthorNestedInput
+  postMentions?: Prisma.PostMentionUncheckedUpdateManyWithoutStaffNestedInput
+  campaigns?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  marketingStrategy?: Prisma.MarketingStrategyUncheckedUpdateManyWithoutCreatedByNestedInput
 }
 
 export type StaffMemberUncheckedUpdateManyWithoutRoleInput = {
@@ -1562,6 +3452,16 @@ export type StaffMemberCountOutputType = {
   kpiReports: number
   leads: number
   leadInteractions: number
+  uploadedFiles: number
+  createdFolders: number
+  notifications: number
+  followUpLogs: number
+  devFocusItems: number
+  productIdeas: number
+  companyPosts: number
+  postMentions: number
+  campaigns: number
+  marketingStrategy: number
 }
 
 export type StaffMemberCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1571,6 +3471,16 @@ export type StaffMemberCountOutputTypeSelect<ExtArgs extends runtime.Types.Exten
   kpiReports?: boolean | StaffMemberCountOutputTypeCountKpiReportsArgs
   leads?: boolean | StaffMemberCountOutputTypeCountLeadsArgs
   leadInteractions?: boolean | StaffMemberCountOutputTypeCountLeadInteractionsArgs
+  uploadedFiles?: boolean | StaffMemberCountOutputTypeCountUploadedFilesArgs
+  createdFolders?: boolean | StaffMemberCountOutputTypeCountCreatedFoldersArgs
+  notifications?: boolean | StaffMemberCountOutputTypeCountNotificationsArgs
+  followUpLogs?: boolean | StaffMemberCountOutputTypeCountFollowUpLogsArgs
+  devFocusItems?: boolean | StaffMemberCountOutputTypeCountDevFocusItemsArgs
+  productIdeas?: boolean | StaffMemberCountOutputTypeCountProductIdeasArgs
+  companyPosts?: boolean | StaffMemberCountOutputTypeCountCompanyPostsArgs
+  postMentions?: boolean | StaffMemberCountOutputTypeCountPostMentionsArgs
+  campaigns?: boolean | StaffMemberCountOutputTypeCountCampaignsArgs
+  marketingStrategy?: boolean | StaffMemberCountOutputTypeCountMarketingStrategyArgs
 }
 
 /**
@@ -1625,6 +3535,76 @@ export type StaffMemberCountOutputTypeCountLeadInteractionsArgs<ExtArgs extends 
   where?: Prisma.LeadInteractionWhereInput
 }
 
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountUploadedFilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DriveFileWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountCreatedFoldersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DriveFolderWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountNotificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountFollowUpLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FollowUpLogWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountDevFocusItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DevFocusItemWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountProductIdeasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductIdeaWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountCompanyPostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CompanyPostWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountPostMentionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PostMentionWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountCampaignsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CampaignWhereInput
+}
+
+/**
+ * StaffMemberCountOutputType without action
+ */
+export type StaffMemberCountOutputTypeCountMarketingStrategyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MarketingStrategyWhereInput
+}
+
 
 export type StaffMemberSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1647,6 +3627,16 @@ export type StaffMemberSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   kpiReports?: boolean | Prisma.StaffMember$kpiReportsArgs<ExtArgs>
   leads?: boolean | Prisma.StaffMember$leadsArgs<ExtArgs>
   leadInteractions?: boolean | Prisma.StaffMember$leadInteractionsArgs<ExtArgs>
+  uploadedFiles?: boolean | Prisma.StaffMember$uploadedFilesArgs<ExtArgs>
+  createdFolders?: boolean | Prisma.StaffMember$createdFoldersArgs<ExtArgs>
+  notifications?: boolean | Prisma.StaffMember$notificationsArgs<ExtArgs>
+  followUpLogs?: boolean | Prisma.StaffMember$followUpLogsArgs<ExtArgs>
+  devFocusItems?: boolean | Prisma.StaffMember$devFocusItemsArgs<ExtArgs>
+  productIdeas?: boolean | Prisma.StaffMember$productIdeasArgs<ExtArgs>
+  companyPosts?: boolean | Prisma.StaffMember$companyPostsArgs<ExtArgs>
+  postMentions?: boolean | Prisma.StaffMember$postMentionsArgs<ExtArgs>
+  campaigns?: boolean | Prisma.StaffMember$campaignsArgs<ExtArgs>
+  marketingStrategy?: boolean | Prisma.StaffMember$marketingStrategyArgs<ExtArgs>
   _count?: boolean | Prisma.StaffMemberCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["staffMember"]>
 
@@ -1709,6 +3699,16 @@ export type StaffMemberInclude<ExtArgs extends runtime.Types.Extensions.Internal
   kpiReports?: boolean | Prisma.StaffMember$kpiReportsArgs<ExtArgs>
   leads?: boolean | Prisma.StaffMember$leadsArgs<ExtArgs>
   leadInteractions?: boolean | Prisma.StaffMember$leadInteractionsArgs<ExtArgs>
+  uploadedFiles?: boolean | Prisma.StaffMember$uploadedFilesArgs<ExtArgs>
+  createdFolders?: boolean | Prisma.StaffMember$createdFoldersArgs<ExtArgs>
+  notifications?: boolean | Prisma.StaffMember$notificationsArgs<ExtArgs>
+  followUpLogs?: boolean | Prisma.StaffMember$followUpLogsArgs<ExtArgs>
+  devFocusItems?: boolean | Prisma.StaffMember$devFocusItemsArgs<ExtArgs>
+  productIdeas?: boolean | Prisma.StaffMember$productIdeasArgs<ExtArgs>
+  companyPosts?: boolean | Prisma.StaffMember$companyPostsArgs<ExtArgs>
+  postMentions?: boolean | Prisma.StaffMember$postMentionsArgs<ExtArgs>
+  campaigns?: boolean | Prisma.StaffMember$campaignsArgs<ExtArgs>
+  marketingStrategy?: boolean | Prisma.StaffMember$marketingStrategyArgs<ExtArgs>
   _count?: boolean | Prisma.StaffMemberCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type StaffMemberIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1731,6 +3731,16 @@ export type $StaffMemberPayload<ExtArgs extends runtime.Types.Extensions.Interna
     kpiReports: Prisma.$KPIReportPayload<ExtArgs>[]
     leads: Prisma.$LeadPayload<ExtArgs>[]
     leadInteractions: Prisma.$LeadInteractionPayload<ExtArgs>[]
+    uploadedFiles: Prisma.$DriveFilePayload<ExtArgs>[]
+    createdFolders: Prisma.$DriveFolderPayload<ExtArgs>[]
+    notifications: Prisma.$NotificationPayload<ExtArgs>[]
+    followUpLogs: Prisma.$FollowUpLogPayload<ExtArgs>[]
+    devFocusItems: Prisma.$DevFocusItemPayload<ExtArgs>[]
+    productIdeas: Prisma.$ProductIdeaPayload<ExtArgs>[]
+    companyPosts: Prisma.$CompanyPostPayload<ExtArgs>[]
+    postMentions: Prisma.$PostMentionPayload<ExtArgs>[]
+    campaigns: Prisma.$CampaignPayload<ExtArgs>[]
+    marketingStrategy: Prisma.$MarketingStrategyPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2147,6 +4157,16 @@ export interface Prisma__StaffMemberClient<T, Null = never, ExtArgs extends runt
   kpiReports<T extends Prisma.StaffMember$kpiReportsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$kpiReportsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$KPIReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   leads<T extends Prisma.StaffMember$leadsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$leadsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   leadInteractions<T extends Prisma.StaffMember$leadInteractionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$leadInteractionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeadInteractionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  uploadedFiles<T extends Prisma.StaffMember$uploadedFilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$uploadedFilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DriveFilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  createdFolders<T extends Prisma.StaffMember$createdFoldersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$createdFoldersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DriveFolderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notifications<T extends Prisma.StaffMember$notificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  followUpLogs<T extends Prisma.StaffMember$followUpLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$followUpLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FollowUpLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  devFocusItems<T extends Prisma.StaffMember$devFocusItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$devFocusItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DevFocusItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productIdeas<T extends Prisma.StaffMember$productIdeasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$productIdeasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductIdeaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  companyPosts<T extends Prisma.StaffMember$companyPostsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$companyPostsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CompanyPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  postMentions<T extends Prisma.StaffMember$postMentionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$postMentionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PostMentionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  campaigns<T extends Prisma.StaffMember$campaignsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$campaignsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CampaignPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  marketingStrategy<T extends Prisma.StaffMember$marketingStrategyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffMember$marketingStrategyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MarketingStrategyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2749,6 +4769,246 @@ export type StaffMember$leadInteractionsArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   distinct?: Prisma.LeadInteractionScalarFieldEnum | Prisma.LeadInteractionScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.uploadedFiles
+ */
+export type StaffMember$uploadedFilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DriveFile
+   */
+  select?: Prisma.DriveFileSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DriveFile
+   */
+  omit?: Prisma.DriveFileOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DriveFileInclude<ExtArgs> | null
+  where?: Prisma.DriveFileWhereInput
+  orderBy?: Prisma.DriveFileOrderByWithRelationInput | Prisma.DriveFileOrderByWithRelationInput[]
+  cursor?: Prisma.DriveFileWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DriveFileScalarFieldEnum | Prisma.DriveFileScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.createdFolders
+ */
+export type StaffMember$createdFoldersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DriveFolder
+   */
+  select?: Prisma.DriveFolderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DriveFolder
+   */
+  omit?: Prisma.DriveFolderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DriveFolderInclude<ExtArgs> | null
+  where?: Prisma.DriveFolderWhereInput
+  orderBy?: Prisma.DriveFolderOrderByWithRelationInput | Prisma.DriveFolderOrderByWithRelationInput[]
+  cursor?: Prisma.DriveFolderWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DriveFolderScalarFieldEnum | Prisma.DriveFolderScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.notifications
+ */
+export type StaffMember$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Notification
+   */
+  select?: Prisma.NotificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Notification
+   */
+  omit?: Prisma.NotificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationInclude<ExtArgs> | null
+  where?: Prisma.NotificationWhereInput
+  orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.followUpLogs
+ */
+export type StaffMember$followUpLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the FollowUpLog
+   */
+  select?: Prisma.FollowUpLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the FollowUpLog
+   */
+  omit?: Prisma.FollowUpLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FollowUpLogInclude<ExtArgs> | null
+  where?: Prisma.FollowUpLogWhereInput
+  orderBy?: Prisma.FollowUpLogOrderByWithRelationInput | Prisma.FollowUpLogOrderByWithRelationInput[]
+  cursor?: Prisma.FollowUpLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FollowUpLogScalarFieldEnum | Prisma.FollowUpLogScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.devFocusItems
+ */
+export type StaffMember$devFocusItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DevFocusItem
+   */
+  select?: Prisma.DevFocusItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DevFocusItem
+   */
+  omit?: Prisma.DevFocusItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DevFocusItemInclude<ExtArgs> | null
+  where?: Prisma.DevFocusItemWhereInput
+  orderBy?: Prisma.DevFocusItemOrderByWithRelationInput | Prisma.DevFocusItemOrderByWithRelationInput[]
+  cursor?: Prisma.DevFocusItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DevFocusItemScalarFieldEnum | Prisma.DevFocusItemScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.productIdeas
+ */
+export type StaffMember$productIdeasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductIdea
+   */
+  select?: Prisma.ProductIdeaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductIdea
+   */
+  omit?: Prisma.ProductIdeaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductIdeaInclude<ExtArgs> | null
+  where?: Prisma.ProductIdeaWhereInput
+  orderBy?: Prisma.ProductIdeaOrderByWithRelationInput | Prisma.ProductIdeaOrderByWithRelationInput[]
+  cursor?: Prisma.ProductIdeaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductIdeaScalarFieldEnum | Prisma.ProductIdeaScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.companyPosts
+ */
+export type StaffMember$companyPostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CompanyPost
+   */
+  select?: Prisma.CompanyPostSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CompanyPost
+   */
+  omit?: Prisma.CompanyPostOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CompanyPostInclude<ExtArgs> | null
+  where?: Prisma.CompanyPostWhereInput
+  orderBy?: Prisma.CompanyPostOrderByWithRelationInput | Prisma.CompanyPostOrderByWithRelationInput[]
+  cursor?: Prisma.CompanyPostWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CompanyPostScalarFieldEnum | Prisma.CompanyPostScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.postMentions
+ */
+export type StaffMember$postMentionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PostMention
+   */
+  select?: Prisma.PostMentionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PostMention
+   */
+  omit?: Prisma.PostMentionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PostMentionInclude<ExtArgs> | null
+  where?: Prisma.PostMentionWhereInput
+  orderBy?: Prisma.PostMentionOrderByWithRelationInput | Prisma.PostMentionOrderByWithRelationInput[]
+  cursor?: Prisma.PostMentionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PostMentionScalarFieldEnum | Prisma.PostMentionScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.campaigns
+ */
+export type StaffMember$campaignsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Campaign
+   */
+  select?: Prisma.CampaignSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Campaign
+   */
+  omit?: Prisma.CampaignOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CampaignInclude<ExtArgs> | null
+  where?: Prisma.CampaignWhereInput
+  orderBy?: Prisma.CampaignOrderByWithRelationInput | Prisma.CampaignOrderByWithRelationInput[]
+  cursor?: Prisma.CampaignWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CampaignScalarFieldEnum | Prisma.CampaignScalarFieldEnum[]
+}
+
+/**
+ * StaffMember.marketingStrategy
+ */
+export type StaffMember$marketingStrategyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MarketingStrategy
+   */
+  select?: Prisma.MarketingStrategySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MarketingStrategy
+   */
+  omit?: Prisma.MarketingStrategyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MarketingStrategyInclude<ExtArgs> | null
+  where?: Prisma.MarketingStrategyWhereInput
+  orderBy?: Prisma.MarketingStrategyOrderByWithRelationInput | Prisma.MarketingStrategyOrderByWithRelationInput[]
+  cursor?: Prisma.MarketingStrategyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MarketingStrategyScalarFieldEnum | Prisma.MarketingStrategyScalarFieldEnum[]
 }
 
 /**

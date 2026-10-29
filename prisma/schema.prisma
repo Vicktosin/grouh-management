@@ -66,6 +66,13 @@ model StaffMember {
   uploadedFiles    DriveFile[]        @relation("DriveFileUploader")
   createdFolders   DriveFolder[]      @relation("DriveFolderCreator")
   notifications    Notification[]
+  followUpLogs     FollowUpLog[]      @relation("FollowUpLogs")
+  devFocusItems    DevFocusItem[]
+  productIdeas     ProductIdea[]
+  companyPosts      CompanyPost[]
+  postMentions      PostMention[]
+  campaigns         Campaign[]
+  marketingStrategy MarketingStrategy[]
 }
 
 model Task {
@@ -231,6 +238,22 @@ model DriveFile {
   taskLinks  DriveFileTask[]
 }
 
+model FollowUpLog {
+  id            String   @id @default(cuid())
+  staffId       String
+  companyId     String
+  logDate       DateTime // normalised to midnight UTC for the day
+  isCleared     Boolean  @default(false)
+  screenshotUrl String?
+  notes         String?
+  submittedAt   DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  staff StaffMember @relation("FollowUpLogs", fields: [staffId], references: [id], onDelete: Cascade)
+
+  @@unique([staffId, logDate])
+}
+
 model Notification {
   id        String   @id @default(cuid())
   staffId   String
@@ -254,4 +277,144 @@ model DriveFileTask {
   task Task      @relation(fields: [taskId], references: [id], onDelete: Cascade)
 
   @@id([fileId, taskId])
+}
+
+model Campaign {
+  id            String    @id @default(cuid())
+  companyId     String
+  name          String
+  targetCompany String    @default("all")
+  description   String?
+  status        String    @default("planning") // planning, active, paused, completed
+  budget        Float?
+  startDate     DateTime?
+  endDate       DateTime?
+  createdById   String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  createdBy   StaffMember          @relation(fields: [createdById], references: [id])
+  channels    CampaignChannel[]
+  performance ChannelPerformance[]
+}
+
+model MarketingChannel {
+  id        String   @id @default(cuid())
+  companyId String
+  name      String
+  type      String   @default("digital") // digital, traditional, influencer, other
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  campaigns   CampaignChannel[]
+  performance ChannelPerformance[]
+}
+
+model CampaignChannel {
+  campaignId String
+  channelId  String
+
+  campaign Campaign         @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  channel  MarketingChannel @relation(fields: [channelId], references: [id])
+
+  @@id([campaignId, channelId])
+}
+
+model ChannelPerformance {
+  id          String   @id @default(cuid())
+  companyId   String
+  campaignId  String
+  channelId   String
+  periodLabel String
+  spend       Float    @default(0)
+  reach       Float    @default(0)
+  impressions Float    @default(0)
+  clicks      Float    @default(0)
+  conversions Float    @default(0)
+  notes       String?
+  loggedAt    DateTime @default(now())
+
+  campaign Campaign         @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  channel  MarketingChannel @relation(fields: [channelId], references: [id])
+}
+
+model MarketingStrategy {
+  id            String   @id @default(cuid())
+  companyId     String
+  title         String
+  type          String   @default("research") // research, competitor, positioning, brief
+  targetCompany String   @default("all")
+  body          String
+  status        String   @default("draft") // draft, final
+  createdById   String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  createdBy StaffMember @relation(fields: [createdById], references: [id])
+}
+
+model CompanyPost {
+  id        String    @id @default(cuid())
+  companyId String
+  authorId  String
+  content   String    // may contain @[Full Name](staffId) mention markers
+  type      String    @default("general") // general, announcement, event
+  isPinned  Boolean   @default(false)
+  eventDate DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  author   StaffMember   @relation(fields: [authorId], references: [id])
+  mentions PostMention[]
+}
+
+model PostMention {
+  postId  String
+  staffId String
+
+  post  CompanyPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  staff StaffMember @relation(fields: [staffId], references: [id])
+
+  @@id([postId, staffId])
+}
+
+model DevFocusItem {
+  id        String   @id @default(cuid())
+  companyId String
+  staffId   String
+  text      String
+  isDone    Boolean  @default(false)
+  date      DateTime // normalised to day (midnight UTC)
+  createdAt DateTime @default(now())
+
+  staff StaffMember @relation(fields: [staffId], references: [id], onDelete: Cascade)
+}
+
+model SoftwareTool {
+  id          String   @id @default(cuid())
+  companyId   String
+  name        String
+  category    String   @default("other") // hosting, database, design, communication, dev, marketing, other
+  usedBy      String   @default("all")   // all, academy, software, marketing, entertainment
+  url         String?
+  monthlyCost Float    @default(0)
+  status      String   @default("active") // active, warning, down, deprecated
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ProductIdea {
+  id            String   @id @default(cuid())
+  companyId     String
+  title         String
+  description   String?
+  status        String   @default("concept") // concept, planning, in-dev, live, archived
+  targetCompany String   @default("all")
+  priority      String   @default("medium") // low, medium, high
+  createdById   String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  createdBy StaffMember @relation(fields: [createdById], references: [id])
 }

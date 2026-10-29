@@ -2,12 +2,25 @@ import { createClient } from "@/lib/supabase/server";
 import { db } from "@/lib/db";
 import { formatDateTime } from "@/lib/utils";
 import Link from "next/link";
+import { CompanyFeed } from "@/components/feed/company-feed";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   let staff = null;
+  let isManager = false;
+  let feedPosts: {
+    id: string;
+    content: string;
+    type: string;
+    isPinned: boolean;
+    eventDate: string | null;
+    createdAt: string;
+    author: { id: string; firstName: string; lastName: string };
+    mentions: { staffId: string; firstName: string; lastName: string }[];
+  }[] = [];
+  let staffList: { id: string; firstName: string; lastName: string; roleTitle?: string }[] = [];
   let myTasks: {
     id: string;
     title: string;
@@ -27,6 +40,39 @@ export default async function DashboardPage() {
     });
 
     if (staff) {
+      isManager = (staff.role?.level ?? 3) <= 2;
+
+      // Feed posts
+      const rawPosts = await db.companyPost.findMany({
+        where: { companyId: staff.companyId },
+        include: {
+          author: { select: { id: true, firstName: true, lastName: true } },
+          mentions: { include: { staff: { select: { id: true, firstName: true, lastName: true } } } },
+        },
+        orderBy: [{ isPinned: "desc" }, { createdAt: "desc" }],
+        take: 20,
+      });
+      feedPosts = rawPosts.map((p) => ({
+        id: p.id,
+        content: p.content,
+        type: p.type,
+        isPinned: p.isPinned,
+        eventDate: p.eventDate?.toISOString() ?? null,
+        createdAt: p.createdAt.toISOString(),
+        author: p.author,
+        mentions: p.mentions.map((m) => ({ staffId: m.staffId, firstName: m.staff.firstName, lastName: m.staff.lastName })),
+      }));
+
+      // Staff list for @mention dropdown (managers only need this)
+      if (isManager) {
+        const allStaff = await db.staffMember.findMany({
+          where: { companyId: staff.companyId, status: "active" },
+          include: { role: { select: { title: true } } },
+          orderBy: { firstName: "asc" },
+        });
+        staffList = allStaff.map((s) => ({ id: s.id, firstName: s.firstName, lastName: s.lastName, roleTitle: s.role?.title }));
+      }
+
       myTasks = await db.task.findMany({
         where: { assigneeId: staff.id, status: { not: "completed" } },
         include: { creator: { select: { firstName: true, lastName: true } } },
@@ -111,6 +157,20 @@ export default async function DashboardPage() {
             {newTaskCount} new task{newTaskCount > 1 ? "s" : ""} assigned
           </div>
         )}
+      </div>
+
+      {/* Company Feed */}
+      <div className="mb-8">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: "var(--text-subtle)" }}>Company Feed</h2>
+        </div>
+        <CompanyFeed
+          initialPosts={feedPosts}
+          isManager={isManager}
+          currentStaffId={staff.id}
+          staffList={staffList}
+          authorName={`${staff.firstName} ${staff.lastName}`}
+        />
       </div>
 
       {/* Stats */}

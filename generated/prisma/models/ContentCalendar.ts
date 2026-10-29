@@ -20,27 +20,16 @@ export type ContentCalendarModel = runtime.Types.Result.DefaultSelection<Prisma.
 
 export type AggregateContentCalendar = {
   _count: ContentCalendarCountAggregateOutputType | null
-  _avg: ContentCalendarAvgAggregateOutputType | null
-  _sum: ContentCalendarSumAggregateOutputType | null
   _min: ContentCalendarMinAggregateOutputType | null
   _max: ContentCalendarMaxAggregateOutputType | null
-}
-
-export type ContentCalendarAvgAggregateOutputType = {
-  month: number | null
-  year: number | null
-}
-
-export type ContentCalendarSumAggregateOutputType = {
-  month: number | null
-  year: number | null
 }
 
 export type ContentCalendarMinAggregateOutputType = {
   id: string | null
   companyId: string | null
-  month: number | null
-  year: number | null
+  name: string | null
+  description: string | null
+  color: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -48,8 +37,9 @@ export type ContentCalendarMinAggregateOutputType = {
 export type ContentCalendarMaxAggregateOutputType = {
   id: string | null
   companyId: string | null
-  month: number | null
-  year: number | null
+  name: string | null
+  description: string | null
+  color: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -57,29 +47,21 @@ export type ContentCalendarMaxAggregateOutputType = {
 export type ContentCalendarCountAggregateOutputType = {
   id: number
   companyId: number
-  month: number
-  year: number
+  name: number
+  description: number
+  color: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
 
-export type ContentCalendarAvgAggregateInputType = {
-  month?: true
-  year?: true
-}
-
-export type ContentCalendarSumAggregateInputType = {
-  month?: true
-  year?: true
-}
-
 export type ContentCalendarMinAggregateInputType = {
   id?: true
   companyId?: true
-  month?: true
-  year?: true
+  name?: true
+  description?: true
+  color?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -87,8 +69,9 @@ export type ContentCalendarMinAggregateInputType = {
 export type ContentCalendarMaxAggregateInputType = {
   id?: true
   companyId?: true
-  month?: true
-  year?: true
+  name?: true
+  description?: true
+  color?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -96,8 +79,9 @@ export type ContentCalendarMaxAggregateInputType = {
 export type ContentCalendarCountAggregateInputType = {
   id?: true
   companyId?: true
-  month?: true
-  year?: true
+  name?: true
+  description?: true
+  color?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -141,18 +125,6 @@ export type ContentCalendarAggregateArgs<ExtArgs extends runtime.Types.Extension
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: ContentCalendarAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: ContentCalendarSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: ContentCalendarMinAggregateInputType
@@ -183,8 +155,6 @@ export type ContentCalendarGroupByArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   _count?: ContentCalendarCountAggregateInputType | true
-  _avg?: ContentCalendarAvgAggregateInputType
-  _sum?: ContentCalendarSumAggregateInputType
   _min?: ContentCalendarMinAggregateInputType
   _max?: ContentCalendarMaxAggregateInputType
 }
@@ -192,13 +162,12 @@ export type ContentCalendarGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 export type ContentCalendarGroupByOutputType = {
   id: string
   companyId: string
-  month: number
-  year: number
+  name: string
+  description: string | null
+  color: string
   createdAt: Date
   updatedAt: Date
   _count: ContentCalendarCountAggregateOutputType | null
-  _avg: ContentCalendarAvgAggregateOutputType | null
-  _sum: ContentCalendarSumAggregateOutputType | null
   _min: ContentCalendarMinAggregateOutputType | null
   _max: ContentCalendarMaxAggregateOutputType | null
 }
@@ -224,8 +193,9 @@ export type ContentCalendarWhereInput = {
   NOT?: Prisma.ContentCalendarWhereInput | Prisma.ContentCalendarWhereInput[]
   id?: Prisma.StringFilter<"ContentCalendar"> | string
   companyId?: Prisma.StringFilter<"ContentCalendar"> | string
-  month?: Prisma.IntFilter<"ContentCalendar"> | number
-  year?: Prisma.IntFilter<"ContentCalendar"> | number
+  name?: Prisma.StringFilter<"ContentCalendar"> | string
+  description?: Prisma.StringNullableFilter<"ContentCalendar"> | string | null
+  color?: Prisma.StringFilter<"ContentCalendar"> | string
   createdAt?: Prisma.DateTimeFilter<"ContentCalendar"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ContentCalendar"> | Date | string
   slots?: Prisma.ContentSlotListRelationFilter
@@ -234,8 +204,9 @@ export type ContentCalendarWhereInput = {
 export type ContentCalendarOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  month?: Prisma.SortOrder
-  year?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
+  color?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   slots?: Prisma.ContentSlotOrderByRelationAggregateInput
@@ -243,30 +214,30 @@ export type ContentCalendarOrderByWithRelationInput = {
 
 export type ContentCalendarWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  companyId_month_year?: Prisma.ContentCalendarCompanyIdMonthYearCompoundUniqueInput
+  companyId_name?: Prisma.ContentCalendarCompanyIdNameCompoundUniqueInput
   AND?: Prisma.ContentCalendarWhereInput | Prisma.ContentCalendarWhereInput[]
   OR?: Prisma.ContentCalendarWhereInput[]
   NOT?: Prisma.ContentCalendarWhereInput | Prisma.ContentCalendarWhereInput[]
   companyId?: Prisma.StringFilter<"ContentCalendar"> | string
-  month?: Prisma.IntFilter<"ContentCalendar"> | number
-  year?: Prisma.IntFilter<"ContentCalendar"> | number
+  name?: Prisma.StringFilter<"ContentCalendar"> | string
+  description?: Prisma.StringNullableFilter<"ContentCalendar"> | string | null
+  color?: Prisma.StringFilter<"ContentCalendar"> | string
   createdAt?: Prisma.DateTimeFilter<"ContentCalendar"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ContentCalendar"> | Date | string
   slots?: Prisma.ContentSlotListRelationFilter
-}, "id" | "companyId_month_year">
+}, "id" | "companyId_name">
 
 export type ContentCalendarOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  month?: Prisma.SortOrder
-  year?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
+  color?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ContentCalendarCountOrderByAggregateInput
-  _avg?: Prisma.ContentCalendarAvgOrderByAggregateInput
   _max?: Prisma.ContentCalendarMaxOrderByAggregateInput
   _min?: Prisma.ContentCalendarMinOrderByAggregateInput
-  _sum?: Prisma.ContentCalendarSumOrderByAggregateInput
 }
 
 export type ContentCalendarScalarWhereWithAggregatesInput = {
@@ -275,8 +246,9 @@ export type ContentCalendarScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ContentCalendarScalarWhereWithAggregatesInput | Prisma.ContentCalendarScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"ContentCalendar"> | string
   companyId?: Prisma.StringWithAggregatesFilter<"ContentCalendar"> | string
-  month?: Prisma.IntWithAggregatesFilter<"ContentCalendar"> | number
-  year?: Prisma.IntWithAggregatesFilter<"ContentCalendar"> | number
+  name?: Prisma.StringWithAggregatesFilter<"ContentCalendar"> | string
+  description?: Prisma.StringNullableWithAggregatesFilter<"ContentCalendar"> | string | null
+  color?: Prisma.StringWithAggregatesFilter<"ContentCalendar"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ContentCalendar"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ContentCalendar"> | Date | string
 }
@@ -284,8 +256,9 @@ export type ContentCalendarScalarWhereWithAggregatesInput = {
 export type ContentCalendarCreateInput = {
   id?: string
   companyId: string
-  month: number
-  year: number
+  name?: string
+  description?: string | null
+  color?: string
   createdAt?: Date | string
   updatedAt?: Date | string
   slots?: Prisma.ContentSlotCreateNestedManyWithoutCalendarInput
@@ -294,8 +267,9 @@ export type ContentCalendarCreateInput = {
 export type ContentCalendarUncheckedCreateInput = {
   id?: string
   companyId: string
-  month: number
-  year: number
+  name?: string
+  description?: string | null
+  color?: string
   createdAt?: Date | string
   updatedAt?: Date | string
   slots?: Prisma.ContentSlotUncheckedCreateNestedManyWithoutCalendarInput
@@ -304,8 +278,9 @@ export type ContentCalendarUncheckedCreateInput = {
 export type ContentCalendarUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  color?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   slots?: Prisma.ContentSlotUpdateManyWithoutCalendarNestedInput
@@ -314,8 +289,9 @@ export type ContentCalendarUpdateInput = {
 export type ContentCalendarUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  color?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   slots?: Prisma.ContentSlotUncheckedUpdateManyWithoutCalendarNestedInput
@@ -324,8 +300,9 @@ export type ContentCalendarUncheckedUpdateInput = {
 export type ContentCalendarCreateManyInput = {
   id?: string
   companyId: string
-  month: number
-  year: number
+  name?: string
+  description?: string | null
+  color?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -333,8 +310,9 @@ export type ContentCalendarCreateManyInput = {
 export type ContentCalendarUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  color?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -342,37 +320,34 @@ export type ContentCalendarUpdateManyMutationInput = {
 export type ContentCalendarUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  color?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ContentCalendarCompanyIdMonthYearCompoundUniqueInput = {
+export type ContentCalendarCompanyIdNameCompoundUniqueInput = {
   companyId: string
-  month: number
-  year: number
+  name: string
 }
 
 export type ContentCalendarCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  month?: Prisma.SortOrder
-  year?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  color?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type ContentCalendarAvgOrderByAggregateInput = {
-  month?: Prisma.SortOrder
-  year?: Prisma.SortOrder
 }
 
 export type ContentCalendarMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  month?: Prisma.SortOrder
-  year?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  color?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -380,15 +355,11 @@ export type ContentCalendarMaxOrderByAggregateInput = {
 export type ContentCalendarMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  month?: Prisma.SortOrder
-  year?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  color?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type ContentCalendarSumOrderByAggregateInput = {
-  month?: Prisma.SortOrder
-  year?: Prisma.SortOrder
 }
 
 export type ContentCalendarScalarRelationFilter = {
@@ -413,8 +384,9 @@ export type ContentCalendarUpdateOneRequiredWithoutSlotsNestedInput = {
 export type ContentCalendarCreateWithoutSlotsInput = {
   id?: string
   companyId: string
-  month: number
-  year: number
+  name?: string
+  description?: string | null
+  color?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -422,8 +394,9 @@ export type ContentCalendarCreateWithoutSlotsInput = {
 export type ContentCalendarUncheckedCreateWithoutSlotsInput = {
   id?: string
   companyId: string
-  month: number
-  year: number
+  name?: string
+  description?: string | null
+  color?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -447,8 +420,9 @@ export type ContentCalendarUpdateToOneWithWhereWithoutSlotsInput = {
 export type ContentCalendarUpdateWithoutSlotsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  color?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -456,8 +430,9 @@ export type ContentCalendarUpdateWithoutSlotsInput = {
 export type ContentCalendarUncheckedUpdateWithoutSlotsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.StringFieldUpdateOperationsInput | string
-  month?: Prisma.IntFieldUpdateOperationsInput | number
-  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  color?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -496,8 +471,9 @@ export type ContentCalendarCountOutputTypeCountSlotsArgs<ExtArgs extends runtime
 export type ContentCalendarSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   companyId?: boolean
-  month?: boolean
-  year?: boolean
+  name?: boolean
+  description?: boolean
+  color?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   slots?: boolean | Prisma.ContentCalendar$slotsArgs<ExtArgs>
@@ -507,8 +483,9 @@ export type ContentCalendarSelect<ExtArgs extends runtime.Types.Extensions.Inter
 export type ContentCalendarSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   companyId?: boolean
-  month?: boolean
-  year?: boolean
+  name?: boolean
+  description?: boolean
+  color?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["contentCalendar"]>
@@ -516,8 +493,9 @@ export type ContentCalendarSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
 export type ContentCalendarSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   companyId?: boolean
-  month?: boolean
-  year?: boolean
+  name?: boolean
+  description?: boolean
+  color?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["contentCalendar"]>
@@ -525,13 +503,14 @@ export type ContentCalendarSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
 export type ContentCalendarSelectScalar = {
   id?: boolean
   companyId?: boolean
-  month?: boolean
-  year?: boolean
+  name?: boolean
+  description?: boolean
+  color?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ContentCalendarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "companyId" | "month" | "year" | "createdAt" | "updatedAt", ExtArgs["result"]["contentCalendar"]>
+export type ContentCalendarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "companyId" | "name" | "description" | "color" | "createdAt" | "updatedAt", ExtArgs["result"]["contentCalendar"]>
 export type ContentCalendarInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   slots?: boolean | Prisma.ContentCalendar$slotsArgs<ExtArgs>
   _count?: boolean | Prisma.ContentCalendarCountOutputTypeDefaultArgs<ExtArgs>
@@ -547,8 +526,9 @@ export type $ContentCalendarPayload<ExtArgs extends runtime.Types.Extensions.Int
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     companyId: string
-    month: number
-    year: number
+    name: string
+    description: string | null
+    color: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["contentCalendar"]>
@@ -977,8 +957,9 @@ export interface Prisma__ContentCalendarClient<T, Null = never, ExtArgs extends 
 export interface ContentCalendarFieldRefs {
   readonly id: Prisma.FieldRef<"ContentCalendar", 'String'>
   readonly companyId: Prisma.FieldRef<"ContentCalendar", 'String'>
-  readonly month: Prisma.FieldRef<"ContentCalendar", 'Int'>
-  readonly year: Prisma.FieldRef<"ContentCalendar", 'Int'>
+  readonly name: Prisma.FieldRef<"ContentCalendar", 'String'>
+  readonly description: Prisma.FieldRef<"ContentCalendar", 'String'>
+  readonly color: Prisma.FieldRef<"ContentCalendar", 'String'>
   readonly createdAt: Prisma.FieldRef<"ContentCalendar", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ContentCalendar", 'DateTime'>
 }

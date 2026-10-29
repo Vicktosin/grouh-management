@@ -56,12 +56,12 @@ export function AddStaffForm({ companyId, roles }: { companyId: string; roles: {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium mb-1.5" style={{ color: "var(--text-muted)" }}>First Name *</label>
-                  <input required style={inputStyle} value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} />
+                  <label className="block text-xs font-medium mb-1.5" style={{ color: "var(--text-muted)" }}>First Name</label>
+                  <input style={inputStyle} value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium mb-1.5" style={{ color: "var(--text-muted)" }}>Last Name *</label>
-                  <input required style={inputStyle} value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} />
+                  <label className="block text-xs font-medium mb-1.5" style={{ color: "var(--text-muted)" }}>Last Name</label>
+                  <input style={inputStyle} value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} />
                 </div>
               </div>
               <div>

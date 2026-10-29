@@ -184,6 +184,41 @@ const ALL_NAV_ITEMS = [
       </svg>
     ),
   },
+  {
+    key: "marketing",
+    label: "Marketing",
+    href: "/marketing",
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+      </svg>
+    ),
+  },
+  {
+    key: "cto",
+    label: "CTO Hub",
+    href: "/cto",
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+        <path d="M7 8h2l1 3 2-5 1 3h2" />
+      </svg>
+    ),
+  },
+  {
+    key: "followup",
+    label: "Follow-up",
+    href: "/followup",
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M9 12l2 2 4-4" />
+        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.51 0 2.93.37 4.18 1.03" />
+        <path d="M21 3l-9 9" />
+        <path d="M15 3h6v6" />
+      </svg>
+    ),
+  },
 ] as const;
 
 type NavKey = (typeof ALL_NAV_ITEMS)[number]["key"];
@@ -211,9 +246,23 @@ function getAllowedKeys(roleTitle: string | null, roleLevel: number): NavKey[] {
     base.push("calendar");
   }
 
+  // Marketing roles → Marketing hub
+  if (roleTitle && roleTitle.toLowerCase().includes("market")) {
+    base.push("marketing");
+  }
+
   // Sales / Customer Care → CRM
   if (roleTitle && (roleTitle.toLowerCase().includes("sales") || roleTitle.toLowerCase().includes("customer care"))) {
     base.push("crm");
+  }
+
+  // Sales / Customer Care / Support → Follow-up tracker
+  if (roleTitle && (
+    roleTitle.toLowerCase().includes("sales") ||
+    roleTitle.toLowerCase().includes("customer care") ||
+    roleTitle.toLowerCase().includes("support")
+  )) {
+    base.push("followup");
   }
 
   return base;

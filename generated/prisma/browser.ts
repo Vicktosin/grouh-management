@@ -77,3 +77,78 @@ export type ContentCalendar = Prisma.ContentCalendarModel
  * 
  */
 export type ContentSlot = Prisma.ContentSlotModel
+/**
+ * Model DriveFolder
+ * 
+ */
+export type DriveFolder = Prisma.DriveFolderModel
+/**
+ * Model DriveFile
+ * 
+ */
+export type DriveFile = Prisma.DriveFileModel
+/**
+ * Model FollowUpLog
+ * 
+ */
+export type FollowUpLog = Prisma.FollowUpLogModel
+/**
+ * Model Notification
+ * 
+ */
+export type Notification = Prisma.NotificationModel
+/**
+ * Model DriveFileTask
+ * 
+ */
+export type DriveFileTask = Prisma.DriveFileTaskModel
+/**
+ * Model Campaign
+ * 
+ */
+export type Campaign = Prisma.CampaignModel
+/**
+ * Model MarketingChannel
+ * 
+ */
+export type MarketingChannel = Prisma.MarketingChannelModel
+/**
+ * Model CampaignChannel
+ * 
+ */
+export type CampaignChannel = Prisma.CampaignChannelModel
+/**
+ * Model ChannelPerformance
+ * 
+ */
+export type ChannelPerformance = Prisma.ChannelPerformanceModel
+/**
+ * Model MarketingStrategy
+ * 
+ */
+export type MarketingStrategy = Prisma.MarketingStrategyModel
+/**
+ * Model CompanyPost
+ * 
+ */
+export type CompanyPost = Prisma.CompanyPostModel
+/**
+ * Model PostMention
+ * 
+ */
+export type PostMention = Prisma.PostMentionModel
+/**
+ * Model DevFocusItem
+ * 
+ */
+export type DevFocusItem = Prisma.DevFocusItemModel
+/**
+ * Model SoftwareTool
+ * 
+ */
+export type SoftwareTool = Prisma.SoftwareToolModel
+/**
+ * Model ProductIdea
+ * 
+ */
+export type ProductIdea = Prisma.ProductIdeaModel
