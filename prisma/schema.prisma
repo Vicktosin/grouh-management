@@ -168,16 +168,17 @@ model LeadScreenshot {
 }
 
 model ContentCalendar {
-  id        String   @id @default(cuid())
-  companyId String
-  month     Int
-  year      Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  companyId   String
+  name        String   @default("Main Calendar")
+  description String?
+  color       String   @default("#1c1d52")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   slots ContentSlot[]
 
-  @@unique([companyId, month, year])
+  @@unique([companyId, name])
 }
 
 model ContentSlot {
