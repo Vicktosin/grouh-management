@@ -63,6 +63,22 @@ export async function POST(req: Request) {
       },
     });
 
+    // Notify assignee (skip if assigning to themselves)
+    if (assigneeId !== creatorId) {
+      const creator = await db.staffMember.findUnique({ where: { id: creatorId }, select: { firstName: true, lastName: true } });
+      await db.notification.create({
+        data: {
+          staffId: assigneeId,
+          companyId,
+          type: "task_assigned",
+          urgency: priority === "high" ? "high" : "normal",
+          title: "New Task Assigned",
+          message: `${creator ? `${creator.firstName} ${creator.lastName}` : "A manager"} assigned you "${title}"${dueDate ? ` — due ${new Date(dueDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}` : ""}.`,
+          relatedId: task.id,
+        },
+      });
+    }
+
     return NextResponse.json({
       ...task,
       dueDate: task.dueDate?.toISOString() ?? null,

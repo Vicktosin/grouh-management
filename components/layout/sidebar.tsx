@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useTheme } from "@/components/theme-provider";
+import { useNotifications } from "@/components/notifications/notification-system";
 
 // ─── Live clock widget ────────────────────────────────────────────────────────
 
@@ -235,6 +236,7 @@ export function Sidebar({
   const router = useRouter();
   const supabase = createClient();
   const { theme, toggle } = useTheme();
+  const { unreadCount, setPanelOpen } = useNotifications();
 
   const allowedKeys = getAllowedKeys(roleTitle, roleLevel);
   const visibleItems = ALL_NAV_ITEMS.filter((item) => allowedKeys.includes(item.key));
@@ -311,6 +313,29 @@ export function Sidebar({
 
       {/* Bottom */}
       <div className="px-2 py-3 space-y-0.5" style={{ borderTop: "1px solid var(--sidebar-border)" }}>
+        {/* Notification bell */}
+        <button
+          onClick={() => setPanelOpen(true)}
+          className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all relative"
+          style={{ color: "var(--sidebar-text)" }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "var(--sidebar-hover-bg)")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "transparent")}
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+          Notifications
+          {unreadCount > 0 && (
+            <span
+              className="ml-auto text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"
+              style={{ background: "#e05252", color: "white", fontSize: 10, minWidth: 18, textAlign: "center" }}
+            >
+              {unreadCount > 99 ? "99+" : unreadCount}
+            </span>
+          )}
+        </button>
+
         <button
           onClick={toggle}
           className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all"

@@ -63,8 +63,9 @@ model StaffMember {
   kpiReports       KPIReport[]
   leads            Lead[]
   leadInteractions LeadInteraction[]
-  uploadedFiles    DriveFile[]       @relation("DriveFileUploader")
-  createdFolders   DriveFolder[]     @relation("DriveFolderCreator")
+  uploadedFiles    DriveFile[]        @relation("DriveFileUploader")
+  createdFolders   DriveFolder[]      @relation("DriveFolderCreator")
+  notifications    Notification[]
 }
 
 model Task {
@@ -228,6 +229,21 @@ model DriveFile {
   uploadedBy StaffMember    @relation("DriveFileUploader", fields: [uploadedById], references: [id])
   folder     DriveFolder?   @relation(fields: [folderId], references: [id])
   taskLinks  DriveFileTask[]
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  staffId   String
+  companyId String
+  type      String   // task_assigned, task_overdue, task_due_soon, general
+  title     String
+  message   String
+  urgency   String   @default("normal") // low, normal, high, critical
+  isRead    Boolean  @default(false)
+  relatedId String?  // taskId or other entity
+  createdAt DateTime @default(now())
+
+  staff StaffMember @relation(fields: [staffId], references: [id], onDelete: Cascade)
 }
 
 model DriveFileTask {

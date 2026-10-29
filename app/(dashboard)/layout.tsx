@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { Sidebar } from "@/components/layout/sidebar";
+import { NotificationProvider } from "@/components/notifications/notification-system";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -36,11 +37,13 @@ export default async function DashboardLayout({ children }: { children: React.Re
   } catch {}
 
   return (
-    <div className="flex min-h-screen">
-      <Sidebar roleTitle={roleTitle} roleLevel={roleLevel} newTaskCount={newTaskCount} clockedInAt={clockedInAt} />
-      <main className="flex-1 ml-56 min-h-screen" style={{ background: "var(--background)" }}>
-        {children}
-      </main>
-    </div>
+    <NotificationProvider>
+      <div className="flex min-h-screen">
+        <Sidebar roleTitle={roleTitle} roleLevel={roleLevel} newTaskCount={newTaskCount} clockedInAt={clockedInAt} />
+        <main className="flex-1 ml-56 min-h-screen" style={{ background: "var(--background)" }}>
+          {children}
+        </main>
+      </div>
+    </NotificationProvider>
   );
 }
