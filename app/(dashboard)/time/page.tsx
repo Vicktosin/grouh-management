@@ -36,13 +36,13 @@ export default async function TimePage() {
   }
 
   return (
-    <div className="p-8 max-w-3xl">
-      <div className="mb-8">
-        <h1 className="text-2xl font-semibold" style={{ color: "var(--text)" }}>Time Tracking</h1>
-        <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>Clock in when you start work, clock out when you finish.</p>
+    <div className="p-6 lg:p-8 max-w-xl mx-auto">
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold" style={{ color: "var(--text)" }}>Time Tracking</h1>
+        <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>Track your hours — clock in when you start, clock out when you finish.</p>
       </div>
 
-      {staff && <ClockControls staffId={staff.id} activeEntry={activeEntry} />}
+      {staff && <ClockControls staffId={staff.id} activeEntry={activeEntry ? { id: activeEntry.id, clockIn: activeEntry.clockIn } : null} />}
 
       {/* Recent entries */}
       <div className="mt-8">
