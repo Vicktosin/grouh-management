@@ -155,9 +155,11 @@ function getAllowedKeys(roleTitle: string | null, roleLevel: number): NavKey[] {
 export function Sidebar({
   roleTitle,
   roleLevel,
+  newTaskCount = 0,
 }: {
   roleTitle: string | null;
   roleLevel: number;
+  newTaskCount?: number;
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -220,6 +222,14 @@ export function Sidebar({
             >
               {item.icon}
               {item.label}
+              {item.key === "tasks" && newTaskCount > 0 && !active && (
+                <span
+                  className="ml-auto text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"
+                  style={{ background: "var(--success)", color: "white", fontSize: 10 }}
+                >
+                  {newTaskCount}
+                </span>
+              )}
               {active && <span className="ml-auto w-1.5 h-1.5 rounded-full" style={{ background: "var(--success)" }} />}
             </Link>
           );

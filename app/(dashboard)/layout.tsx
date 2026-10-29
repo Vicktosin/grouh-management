@@ -10,6 +10,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   let roleTitle: string | null = null;
   let roleLevel: number = 3;
+  let newTaskCount: number = 0;
 
   try {
     const staff = await db.staffMember.findUnique({
@@ -20,11 +21,17 @@ export default async function DashboardLayout({ children }: { children: React.Re
       roleTitle = staff.role.title;
       roleLevel = staff.role.level;
     }
+    if (staff) {
+      const cutoff = new Date(Date.now() - 48 * 60 * 60 * 1000);
+      newTaskCount = await db.task.count({
+        where: { assigneeId: staff.id, status: { not: "completed" }, createdAt: { gte: cutoff } },
+      });
+    }
   } catch {}
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar roleTitle={roleTitle} roleLevel={roleLevel} />
+      <Sidebar roleTitle={roleTitle} roleLevel={roleLevel} newTaskCount={newTaskCount} />
       <main className="flex-1 ml-56 min-h-screen" style={{ background: "var(--background)" }}>
         {children}
       </main>
