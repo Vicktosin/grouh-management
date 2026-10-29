@@ -173,6 +173,16 @@ const ALL_NAV_ITEMS = [
       </svg>
     ),
   },
+  {
+    key: "files",
+    label: "Files",
+    href: "/files",
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+  },
 ] as const;
 
 type NavKey = (typeof ALL_NAV_ITEMS)[number]["key"];
@@ -186,7 +196,7 @@ function getAllowedKeys(roleTitle: string | null, roleLevel: number): NavKey[] {
   }
 
   // Base pages every staff member sees
-  const base: NavKey[] = ["dashboard", "tasks", "kpis", "time"];
+  const base: NavKey[] = ["dashboard", "tasks", "kpis", "time", "files"];
 
   // Content / creative roles → Calendar
   const contentRoles = [
