@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme-provider";
 
-const navItems = [
+// ─── Nav item definitions ────────────────────────────────────────────────────
+
+const ALL_NAV_ITEMS = [
   {
+    key: "dashboard",
     label: "Dashboard",
     href: "/dashboard",
     icon: (
@@ -20,6 +22,7 @@ const navItems = [
     ),
   },
   {
+    key: "org",
     label: "Organisation",
     href: "/org",
     icon: (
@@ -33,6 +36,7 @@ const navItems = [
     ),
   },
   {
+    key: "roles",
     label: "Roles",
     href: "/roles",
     icon: (
@@ -45,6 +49,7 @@ const navItems = [
     ),
   },
   {
+    key: "staff",
     label: "Staff",
     href: "/staff",
     icon: (
@@ -57,6 +62,7 @@ const navItems = [
     ),
   },
   {
+    key: "tasks",
     label: "Tasks",
     href: "/tasks",
     icon: (
@@ -67,6 +73,7 @@ const navItems = [
     ),
   },
   {
+    key: "time",
     label: "Time",
     href: "/time",
     icon: (
@@ -77,6 +84,7 @@ const navItems = [
     ),
   },
   {
+    key: "kpis",
     label: "KPIs",
     href: "/kpis",
     icon: (
@@ -87,6 +95,7 @@ const navItems = [
     ),
   },
   {
+    key: "crm",
     label: "CRM",
     href: "/crm",
     icon: (
@@ -96,6 +105,7 @@ const navItems = [
     ),
   },
   {
+    key: "calendar",
     label: "Calendar",
     href: "/calendar",
     icon: (
@@ -105,13 +115,57 @@ const navItems = [
       </svg>
     ),
   },
-];
+] as const;
 
-export function Sidebar() {
+type NavKey = (typeof ALL_NAV_ITEMS)[number]["key"];
+
+// ─── Role → allowed nav keys ─────────────────────────────────────────────────
+
+function getAllowedKeys(roleTitle: string | null, roleLevel: number): NavKey[] {
+  // Directors and Operations Managers see everything
+  if (roleLevel <= 2) {
+    return ALL_NAV_ITEMS.map((i) => i.key);
+  }
+
+  // Base pages every staff member sees
+  const base: NavKey[] = ["dashboard", "tasks", "kpis", "time"];
+
+  // Content / creative roles → Calendar
+  const contentRoles = [
+    "Content Strategist",
+    "Graphic Designer",
+    "Social Media Manager",
+    "Motion Animator",
+    "Digital Marketing Strategist",
+  ];
+  if (roleTitle && contentRoles.some((r) => roleTitle.toLowerCase().includes(r.toLowerCase()))) {
+    base.push("calendar");
+  }
+
+  // Sales / Customer Care → CRM
+  if (roleTitle && (roleTitle.toLowerCase().includes("sales") || roleTitle.toLowerCase().includes("customer care"))) {
+    base.push("crm");
+  }
+
+  return base;
+}
+
+// ─── Sidebar component ───────────────────────────────────────────────────────
+
+export function Sidebar({
+  roleTitle,
+  roleLevel,
+}: {
+  roleTitle: string | null;
+  roleLevel: number;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const supabase = createClient();
   const { theme, toggle } = useTheme();
+
+  const allowedKeys = getAllowedKeys(roleTitle, roleLevel);
+  const visibleItems = ALL_NAV_ITEMS.filter((item) => allowedKeys.includes(item.key));
 
   async function handleSignOut() {
     await supabase.auth.signOut();
@@ -126,10 +180,7 @@ export function Sidebar() {
     >
       {/* Brand */}
       <div className="px-4 py-5 flex items-center gap-3" style={{ borderBottom: "1px solid var(--sidebar-border)" }}>
-        <div
-          className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-          style={{ background: "var(--success)" }}
-        >
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--success)" }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
@@ -139,13 +190,20 @@ export function Sidebar() {
         </div>
         <div>
           <p className="text-sm font-bold leading-tight" style={{ color: "white" }}>Grouh</p>
-          <p className="text-xs leading-tight font-medium" style={{ color: "rgba(255,255,255,0.45)" }}>Management</p>
+          <p className="text-xs font-medium leading-tight" style={{ color: "rgba(255,255,255,0.4)" }}>Management</p>
         </div>
       </div>
 
+      {/* Role badge */}
+      {roleTitle && (
+        <div className="px-4 py-2.5" style={{ borderBottom: "1px solid var(--sidebar-border)" }}>
+          <p className="text-xs truncate" style={{ color: "rgba(255,255,255,0.45)" }}>{roleTitle}</p>
+        </div>
+      )}
+
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto px-2 py-3 space-y-0.5">
-        {navItems.map((item) => {
+        {visibleItems.map((item) => {
           const active = pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href + "/"));
           return (
             <Link
@@ -157,21 +215,12 @@ export function Sidebar() {
                 color: active ? "var(--sidebar-text-active)" : "var(--sidebar-text)",
                 fontWeight: active ? 600 : 400,
               }}
-              onMouseEnter={(e) => {
-                if (!active) (e.currentTarget as HTMLElement).style.background = "var(--sidebar-hover-bg)";
-              }}
-              onMouseLeave={(e) => {
-                if (!active) (e.currentTarget as HTMLElement).style.background = "transparent";
-              }}
+              onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "var(--sidebar-hover-bg)"; }}
+              onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
             >
               {item.icon}
               {item.label}
-              {active && (
-                <span
-                  className="ml-auto w-1 h-1 rounded-full"
-                  style={{ background: "var(--success)" }}
-                />
-              )}
+              {active && <span className="ml-auto w-1.5 h-1.5 rounded-full" style={{ background: "var(--success)" }} />}
             </Link>
           );
         })}
@@ -179,7 +228,6 @@ export function Sidebar() {
 
       {/* Bottom */}
       <div className="px-2 py-3 space-y-0.5" style={{ borderTop: "1px solid var(--sidebar-border)" }}>
-        {/* Theme toggle */}
         <button
           onClick={toggle}
           className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all"
@@ -200,7 +248,6 @@ export function Sidebar() {
           {theme === "light" ? "Dark mode" : "Light mode"}
         </button>
 
-        {/* Profile */}
         <Link
           href="/profile"
           className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all"
@@ -208,12 +255,8 @@ export function Sidebar() {
             background: pathname === "/profile" ? "var(--sidebar-active-bg)" : "transparent",
             color: pathname === "/profile" ? "var(--sidebar-text-active)" : "var(--sidebar-text)",
           }}
-          onMouseEnter={(e) => {
-            if (pathname !== "/profile") (e.currentTarget as HTMLElement).style.background = "var(--sidebar-hover-bg)";
-          }}
-          onMouseLeave={(e) => {
-            if (pathname !== "/profile") (e.currentTarget as HTMLElement).style.background = "transparent";
-          }}
+          onMouseEnter={(e) => { if (pathname !== "/profile") (e.currentTarget as HTMLElement).style.background = "var(--sidebar-hover-bg)"; }}
+          onMouseLeave={(e) => { if (pathname !== "/profile") (e.currentTarget as HTMLElement).style.background = "transparent"; }}
         >
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="8" r="4" />
@@ -222,19 +265,12 @@ export function Sidebar() {
           My Profile
         </Link>
 
-        {/* Sign out */}
         <button
           onClick={handleSignOut}
           className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all"
           style={{ color: "var(--sidebar-text)" }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.background = "rgba(224,82,82,0.15)";
-            (e.currentTarget as HTMLElement).style.color = "#ff8080";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.background = "transparent";
-            (e.currentTarget as HTMLElement).style.color = "var(--sidebar-text)";
-          }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(224,82,82,0.15)"; (e.currentTarget as HTMLElement).style.color = "#ff8080"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "var(--sidebar-text)"; }}
         >
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
