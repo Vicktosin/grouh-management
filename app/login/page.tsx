@@ -61,7 +61,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-          © {new Date().getFullYear()} Grouh Academy
+          © 2026 Grouh Academy
         </p>
       </div>
 
