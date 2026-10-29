@@ -31,28 +31,31 @@ function SidebarClock({ clockedInAt }: { clockedInAt: string | null }) {
   return (
     <div
       className="mx-2 mb-2 rounded-xl px-3 py-3"
-      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+      style={{
+        background: clockedInAt ? "rgba(95,187,70,0.18)" : "rgba(95,187,70,0.10)",
+        border: "1px solid rgba(95,187,70,0.35)",
+      }}
     >
       {/* Current time */}
       <p
-        className="text-center font-bold tabular-nums leading-none"
-        style={{ fontSize: "1.45rem", color: "white", letterSpacing: "0.04em" }}
+        className="font-bold tabular-nums leading-none"
+        style={{ fontSize: "1.35rem", color: "white", letterSpacing: "0.04em" }}
       >
         {timeStr}
       </p>
 
       {/* Clocked-in status */}
       {clockedInAt ? (
-        <div className="mt-2.5 text-center">
-          <p className="text-xs font-semibold tabular-nums" style={{ color: "#5fbb46", letterSpacing: "0.06em" }}>
+        <div className="mt-2">
+          <p className="text-sm font-bold tabular-nums" style={{ color: "#5fbb46", letterSpacing: "0.04em" }}>
             {elapsedStr}
           </p>
-          <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+          <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
             in since {clockInTime}
           </p>
         </div>
       ) : (
-        <p className="text-xs text-center mt-1.5" style={{ color: "rgba(255,255,255,0.3)" }}>
+        <p className="text-xs mt-1.5" style={{ color: "rgba(255,255,255,0.4)" }}>
           Not clocked in
         </p>
       )}
