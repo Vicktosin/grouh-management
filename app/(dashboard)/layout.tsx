@@ -11,6 +11,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   let roleTitle: string | null = null;
   let roleLevel: number = 3;
   let newTaskCount: number = 0;
+  let clockedInAt: string | null = null;
 
   try {
     const staff = await db.staffMember.findUnique({
@@ -26,12 +27,17 @@ export default async function DashboardLayout({ children }: { children: React.Re
       newTaskCount = await db.task.count({
         where: { assigneeId: staff.id, status: { not: "completed" }, createdAt: { gte: cutoff } },
       });
+      const active = await db.timeEntry.findFirst({
+        where: { staffId: staff.id, clockOut: null },
+        select: { clockIn: true },
+      });
+      if (active) clockedInAt = active.clockIn.toISOString();
     }
   } catch {}
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar roleTitle={roleTitle} roleLevel={roleLevel} newTaskCount={newTaskCount} />
+      <Sidebar roleTitle={roleTitle} roleLevel={roleLevel} newTaskCount={newTaskCount} clockedInAt={clockedInAt} />
       <main className="flex-1 ml-56 min-h-screen" style={{ background: "var(--background)" }}>
         {children}
       </main>

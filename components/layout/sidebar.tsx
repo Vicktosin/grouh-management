@@ -2,8 +2,63 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useTheme } from "@/components/theme-provider";
+
+// ─── Live clock widget ────────────────────────────────────────────────────────
+
+function SidebarClock({ clockedInAt }: { clockedInAt: string | null }) {
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+
+  const timeStr = now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+  const elapsed = clockedInAt ? now.getTime() - new Date(clockedInAt).getTime() : 0;
+  const elapsedHrs = Math.floor(elapsed / 3600000);
+  const elapsedMins = Math.floor((elapsed % 3600000) / 60000);
+  const elapsedSecs = Math.floor((elapsed % 60000) / 1000);
+  const elapsedStr = `${String(elapsedHrs).padStart(2, "0")}:${String(elapsedMins).padStart(2, "0")}:${String(elapsedSecs).padStart(2, "0")}`;
+
+  const clockInTime = clockedInAt
+    ? new Date(clockedInAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
+    : null;
+
+  return (
+    <div
+      className="mx-2 mb-2 rounded-xl px-3 py-3"
+      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+    >
+      {/* Current time */}
+      <p
+        className="text-center font-bold tabular-nums leading-none"
+        style={{ fontSize: "1.45rem", color: "white", letterSpacing: "0.04em" }}
+      >
+        {timeStr}
+      </p>
+
+      {/* Clocked-in status */}
+      {clockedInAt ? (
+        <div className="mt-2.5 text-center">
+          <p className="text-xs font-semibold tabular-nums" style={{ color: "#5fbb46", letterSpacing: "0.06em" }}>
+            {elapsedStr}
+          </p>
+          <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+            in since {clockInTime}
+          </p>
+        </div>
+      ) : (
+        <p className="text-xs text-center mt-1.5" style={{ color: "rgba(255,255,255,0.3)" }}>
+          Not clocked in
+        </p>
+      )}
+    </div>
+  );
+}
 
 // ─── Nav item definitions ────────────────────────────────────────────────────
 
@@ -156,10 +211,12 @@ export function Sidebar({
   roleTitle,
   roleLevel,
   newTaskCount = 0,
+  clockedInAt = null,
 }: {
   roleTitle: string | null;
   roleLevel: number;
   newTaskCount?: number;
+  clockedInAt?: string | null;
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -235,6 +292,9 @@ export function Sidebar({
           );
         })}
       </nav>
+
+      {/* Live clock widget */}
+      <SidebarClock clockedInAt={clockedInAt} />
 
       {/* Bottom */}
       <div className="px-2 py-3 space-y-0.5" style={{ borderTop: "1px solid var(--sidebar-border)" }}>
